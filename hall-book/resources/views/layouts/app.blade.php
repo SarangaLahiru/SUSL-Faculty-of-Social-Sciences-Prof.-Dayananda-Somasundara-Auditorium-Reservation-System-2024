@@ -9,11 +9,16 @@
     <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStbJ4CDaAVPY2HEO-24xhHccIyQkbZFfy37w&s">
 
     <!-- Bootstrap and FontAwesome -->
+
+
+    <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/check_availability.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 </head>
 
 <body>
@@ -41,6 +46,14 @@
                         </button>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
                             <ul class="navbar-nav m-auto">
+                                @auth
+                                <li class="nav-item">
+                                    <a href="/account" class="nav-link">
+                                        Profile
+                                    </a>
+                                </li>
+
+                                @endauth
                                 <li class="nav-item">
                                     <a href="/" class="nav-link">
                                         Booking
@@ -69,6 +82,7 @@
                             </ul>
                             <div class="navbar-btn d-none d-sm-inline-block">
                                 {{-- Commented out contact details --}}
+
                             </div>
                             <ul class="navbar-nav">
                                 @auth
@@ -93,17 +107,25 @@
                                     <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="navbarDropdown">
                                         <li>
                                             <a class="dropdown-item" href="#">
-                                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                {{ Auth::user()->email }}
+                                                <div class="d-flex align-items-center">
+                                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                    <div>
+                                                        <span>{{ Auth::user()->email }}</span><br>
+
+                                                        <small class="text-muted">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</small>
+                                                    </div>
+                                                </div>
                                             </a>
                                         </li>
+
                                         <li>
                                             <div class="dropdown-divider"></div>
                                         </li>
                                         <li>
                                             <a class="dropdown-item" href="{{ route('account') }}">
                                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                Dashboard
+                                                Profile
+                                                <small class="text-muted">as {{ Auth::user()->category }}</small>
                                             </a>
                                         </li>
                                         <li>
@@ -122,7 +144,7 @@
                                 </li>
                                 @else
                                 <!-- User is not authenticated -->
-                                <div class="navbar-btn d-none d-sm-inline-block">
+                                <div class="navbar-btn d-non d-sm-inline-block">
                                     <ul>
                                         <li>
                                             <a class="btn primary-btn-outline" href="{{ route('login') }}">
@@ -139,7 +161,9 @@
                                 @endauth
                             </ul>
                         </div>
+
                     </nav>
+
                     <!-- navbar -->
                 </div>
             </div>
