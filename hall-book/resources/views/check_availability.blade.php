@@ -67,7 +67,7 @@
 <!--====== HEADER ONE PART ENDS ======-->
 <div class="container check">
 
-    <div class="row justify-content-center mt-4" data-aos="fade-u" data-aos-duration="1000">
+    <div class="row justify-content-center mt-4" data-ao="fade-u" data-ao-duration="1000">
         <div class="col">
             <div class="car">
                 <div class="card-body">
@@ -155,6 +155,67 @@
     </div>
 </div>
 
+<!-- Confirmation Modal -->
+<!-- Confirmation Modal -->
+<div class="modal fade" id="bookingConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="bookingConfirmationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingConfirmationLabel">Confirm Booking</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if(session('confirm_model'))
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-check-circle-fill me-2" width="24" height="24" fill="currentColor">
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.293 8.293a1 1 0 0 1-1.414 0L12 11.586 9.121 8.707a1 1 0 0 1 1.414-1.414L12 10.172l4.879-4.879a1 1 0 0 1 1.414 1.414z"/>
+                        </svg>
+                        <div>
+                            Your time slots are <strong>available</strong>!
+                        </div>
+                    </div>
+                    <p>Please find the available time slots below:</p>
+                    <ul id="dateTimeList" class="list-group">
+                        @foreach(session('confirm_model')['availabilityData'] as $data)
+                            <li class="list-group-item">
+                                {{ $data['date'] }} -
+                                <strong>{{ date('g:i A', strtotime($data['start_time'])) }}</strong> to
+                                <strong>{{ date('g:i A', strtotime($data['end_time'])) }}</strong>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        <strong>No time slots are currently available.</strong> Please check back later.
+                    </div>
+                @endif
+
+                @if(!Auth::check())
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Login Required:</strong> To book the selected time slots, you need to log in.
+                    </div>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
+                @endif
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                @if(Auth::check() && session('confirm_model'))
+                    <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                    </form>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
 <link href='packages/core/main.css' rel='stylesheet' />
 <link href='packages/bootstrap/main.css' rel='stylesheet' />
@@ -182,6 +243,7 @@
     document.addEventListener('DOMContentLoaded', function () {
 
         showLoadingIndicator();
+
 
 
         var calendarEl = document.getElementById('calendar');
@@ -328,6 +390,12 @@
             });
         });
 
+        // Check if confirm_model session variable is set
+        @if (session('confirm_model'))
+        $('#bookingConfirmationModal').modal('show');
+
+       @endif
+
         @if (session('error'))
             $(document).ready(function () {
                 var unavailableSlotsHtml = '';
@@ -359,6 +427,8 @@
             });
 
         @endif
+
+
 
 
 

@@ -20,7 +20,7 @@ class AdminMiddleware
 
 
             if (!Auth::guard('admin')->check()) {
-                return redirect('/'); // Redirect non-admin users to home
+                return redirect('/admin/login'); // Redirect non-admin users to home
             }
 
             return $next($request);
