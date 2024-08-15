@@ -193,7 +193,7 @@
                 <div class="alert alert-warning d-flex align-items-center" role="alert">
                     <i class="fas fa-exclamation-circle me-2 mt-1" style="font-size: 1.5rem;"></i>
                     <div>
-                        <strong>Registration Required:</strong> To book the selected time slots, you need to register.
+                        <strong>Registration Required:</strong>  you need to register to book the selected time slots,.
                     </div>
                 </div>
                 <div class="mt-2">
