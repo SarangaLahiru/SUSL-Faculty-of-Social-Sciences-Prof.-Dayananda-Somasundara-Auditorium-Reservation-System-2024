@@ -191,9 +191,9 @@
 
                 @if(!Auth::check())
                 <div class="alert alert-warning d-flex align-items-center" role="alert">
-                    <i class="fas fa-exclamation-circle me-2 mt-1" style="font-size: 1.5rem;"></i>
+                    <i class="fas fa-exclamation-circle me-2" style="font-size: 1.5rem;"></i>
                     <div>
-                        <strong>Registration Required:</strong> To book the selected time slots, you need to register.
+                         If you want to make reservations, you must first  <strong>register or login</strong>
                     </div>
                 </div>
                 <div class="mt-2">
@@ -205,7 +205,7 @@
             <div class="modal-footer">
 
                 @if(!Auth::check())
-                <p class="">If you already have an account, <a href="{{ route('login') }}">Login in here</a>.</p>
+                <p class=" w-100 " style="font-size: 15px">If you already have an account ? <a href="{{ route('login') }}">Login in here</a>.</p>
 
             @endif
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationModal').modal('hide')">Cancel</button>
@@ -226,18 +226,8 @@
             <div class="modal-header">
                 <div class="alert alert-success w-100" role="alert">
 
-                    <p><i class="fas fa-check-circle me-2" style="font-size: 1.5rem;"></i> Now you are <strong>registered</strong>!</p>
+                    <p><i class="fas fa-check-circle me-2" style="font-size: 1.5rem;"></i> Now you are <strong>Login successfully</strong>!</p>
 
-
-                   <ul>
-                       {{--  @foreach(session('confirm_model')['availabilityData'] as $data)
-                           <li >
-                               {{ $data['date'] }} :
-                               <strong>{{ date('g:i A', strtotime($data['start_time'])) }}</strong> to
-                               <strong>{{ date('g:i A', strtotime($data['end_time'])) }}</strong>
-                           </li>
-                       @endforeach  --}}
-                   </ul>
                       </div>
 
             </div>
@@ -245,7 +235,7 @@
                 @if(session('confirm_model_alert'))
                 <div class="alert alert-success" role="alert">
 
-                     <p><i class="fas fa-check-circle me-2 m-1" style="font-size: 1.5rem;"></i> Your selected time slots are <strong>available</strong>!</p>
+                     <p>Your previous selected time slots are <strong>available</strong>!</p>
                     <hr>
                     <p>Your selected time slots</p>
 
@@ -285,7 +275,7 @@
                 <p class="">If you already have an account, <a href="{{ route('login') }}">Login in here</a>.</p>
 
             @endif
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationModal').modal('hide')">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationalertModal').modal('hide')">Try another</button>
                 @if(Auth::check() && session('confirm_model_alert'))
                 <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
                     @csrf
