@@ -21,7 +21,7 @@ class CheckRole
         if (!Auth::guard('admin')->check() || Auth::guard('admin')->user()->role !== $role) {
             // Redirect or show an error
             // return redirect()->route('admin.login')->withErrors(['email' => 'Unauthorized.']);
-            return redirect('/');
+            return redirect('/admin/login');
         }
 
         return $next($request);

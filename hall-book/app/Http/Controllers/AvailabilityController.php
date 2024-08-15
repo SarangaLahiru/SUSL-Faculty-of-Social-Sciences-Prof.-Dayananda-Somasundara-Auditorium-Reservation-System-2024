@@ -53,13 +53,14 @@ class AvailabilityController extends Controller
     if (empty($unavailableSlots)) {
 
         Session::put('availabilityData',$availabilityData);
-        // $userID=Auth::class()->NIC;
+        return redirect()->back()->with('confirm_model', [
+            'message' => 'All requested time slots are available',
+            'availabilityData' => $availabilityData, // Pass the availability data
+        ]);
 
-        // Session::put('userID',$userID);
-        // All requested time slots are available
-        return redirect()->route('createBookingForm')->with('success', 'All requested time slots are available.');
-        // return redirect()->route('createBookingForm')->with('availabilityData', $availabilityData)->with('success', 'All requested time slots are available.');
-        // return view('createBooking', compact('availabilityData'))->with('success', 'All requested time slots are available.');
+
+        // return redirect()->route('createBookingForm')->with('success', 'All requested time slots are available.');
+
     } else {
         // Some of the requested time slots are unavailable
         return redirect()->back()->with('error', ['message' => 'Your selected time slot(s) are not available.', 'unavailable_slots' => $unavailableSlots]);
