@@ -1,4 +1,4 @@
-🎓 SUSL Prof. Dayananda Somasundara Auditorium Reservation System 2024
+#🎓 SUSL Prof. Dayananda Somasundara Auditorium Reservation System 2024
 Welcome to the official repository for the Prof. Dayananda Somasundara Auditorium Reservation System at the Faculty of Social Sciences, Sabaragamuwa University of Sri Lanka (SUSL). This Laravel-based platform is crafted to streamline the process of reserving our prestigious auditorium, ensuring a smooth and efficient experience for all users.
 
 🚀 Features
