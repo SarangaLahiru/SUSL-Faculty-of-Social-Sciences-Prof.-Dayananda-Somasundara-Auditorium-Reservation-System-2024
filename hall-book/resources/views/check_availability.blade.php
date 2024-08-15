@@ -23,31 +23,23 @@
             <div class="row align-items-center dis" style="margin-top: 0px">
                 <div class="col-lg-6 col-12">
                     <div class="header-wrapper">
-                        <div class="header-content" data-aos="fade-up" data-aos-duration="3000">
+                        <div class="header-content" data-ao="fade-up" data-ao-duration="3000">
                             <h1 class="header-title">
                                 Prof. Dayananda Somasundara Auditorum
                             </h1>
                             <p class="text-lg" style="font-size: 24px">
                                 Hall Reservation System
                             </p>
-                            {{-- <div class="header-btn rounded-buttons">
-                                <a class="btn primary-btn-outline btn-lg" href="javascript:void(0)">
-                                    DOWNLOAD NOW
-                                </a>
-                            </div> --}}
+
                         </div>
                         <!-- header content -->
                     </div>
                 </div>
                 <div class="col">
-                    {{-- <div class="header-image d-none d-lg-block">
-                        <div class="image">
-                            <img src="https://cdn.ayroui.com/1.0/images/header/header-1.svg" alt="Header" />
-                        </div>
-                    </div> --}}
+
                     <div class="shadow">
 
-                        <div id="calendar" class="calendar" style="margin-top: -10px;" data-aos="fade-left">
+                        <div id="calendar" class="calendar" style="margin-top: -10px;" data-ao="fade-left">
 
                             <ul class="legend" style="display: flex">
                                 <li>
@@ -74,16 +66,8 @@
 </section>
 <!--====== HEADER ONE PART ENDS ======-->
 <div class="container check">
-    {{-- <div class="row">
-        <div class="col-md-6">
-            <h2 class="text-xl-start fs-3 fs-md-4 title">Hall Reservation System</h2>
-        </div>
-        <div class="col-md-6 text-md-right">
-            <div id="calendar" class="calendar"></div>
-        </div>
-    </div> --}}
 
-    <div class="row justify-content-center mt-4" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row justify-content-center mt-4" data-aos="fade-u" data-aos-duration="1000">
         <div class="col">
             <div class="car">
                 <div class="card-body">
