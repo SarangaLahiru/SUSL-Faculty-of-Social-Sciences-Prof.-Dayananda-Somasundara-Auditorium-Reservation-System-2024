@@ -193,7 +193,7 @@
                 <div class="alert alert-warning d-flex align-items-center" role="alert">
                     <i class="fas fa-exclamation-circle me-2 mt-1" style="font-size: 1.5rem;"></i>
                     <div>
-                        <strong>Registration Required:</strong>  you need to register to book the selected time slots,.
+                        <strong>Registration Required:</strong> To book the selected time slots, you need to register.
                     </div>
                 </div>
                 <div class="mt-2">
@@ -220,7 +220,82 @@
     </div>
 </div>
 
+<div class="modal fade" id="bookingConfirmationalertModal" tabindex="-1" role="dialog" aria-labelledby="bookingConfirmationLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="alert alert-success w-100" role="alert">
 
+                    <p><i class="fas fa-check-circle me-2" style="font-size: 1.5rem;"></i> Now you are <strong>registered</strong>!</p>
+
+
+                   <ul>
+                       {{--  @foreach(session('confirm_model')['availabilityData'] as $data)
+                           <li >
+                               {{ $data['date'] }} :
+                               <strong>{{ date('g:i A', strtotime($data['start_time'])) }}</strong> to
+                               <strong>{{ date('g:i A', strtotime($data['end_time'])) }}</strong>
+                           </li>
+                       @endforeach  --}}
+                   </ul>
+                      </div>
+
+            </div>
+            <div class="modal-body">
+                @if(session('confirm_model_alert'))
+                <div class="alert alert-success" role="alert">
+
+                     <p><i class="fas fa-check-circle me-2 m-1" style="font-size: 1.5rem;"></i> Your selected time slots are <strong>available</strong>!</p>
+                    <hr>
+                    <p>Your selected time slots</p>
+
+                    <ul>
+                        @foreach(session('confirm_model_alert')['availabilityData'] as $data)
+                            <li >
+                                {{ $data['date'] }} :
+                                <strong>{{ date('g:i A', strtotime($data['start_time'])) }}</strong> to
+                                <strong>{{ date('g:i A', strtotime($data['end_time'])) }}</strong>
+                            </li>
+                        @endforeach
+                    </ul>
+                       </div>
+
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        <strong>No time slots are currently available.</strong> Please check back later.
+                    </div>
+                @endif
+
+                @if(!Auth::check())
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <i class="fas fa-exclamation-circle me-2 mt-1" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <strong>Registration Required:</strong> To book the selected time slots, you need to register.
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <a href="{{ route('register') }}" class="btn btn-primary w-100">Register</a>
+
+                </div>
+            @endif
+            </div>
+            <div class="modal-footer">
+
+                @if(!Auth::check())
+                <p class="">If you already have an account, <a href="{{ route('login') }}">Login in here</a>.</p>
+
+            @endif
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationModal').modal('hide')">Cancel</button>
+                @if(Auth::check() && session('confirm_model_alert'))
+                <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Proceed to Book Selected Time Slots</button>
+                </form>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -251,6 +326,7 @@
     document.addEventListener('DOMContentLoaded', function () {
 
         showLoadingIndicator();
+
 
 
 
@@ -403,6 +479,10 @@
         $('#bookingConfirmationModal').modal('show');
 
        @endif
+       @if (session('confirm_model_alert'))
+       $('#bookingConfirmationalertModal').modal('show');
+
+      @endif
 
         @if (session('error'))
             $(document).ready(function () {

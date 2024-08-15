@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Models\User;
 use App\Models\Booking;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -35,7 +36,21 @@ class CustomerController extends Controller
         // Attempt to authenticate the user with the credentials and remember option
         if (Auth::attempt($credentials, $remember)) {
             // If successful, redirect to intended route or account page
-            return redirect()->intended('account');
+            // return redirect()->intended('/')->with('');
+
+            $availabilityData = Session::get('availabilityData');
+
+            if($availabilityData){
+                return redirect('/')->with('confirm_model_alert', [
+                    'message' => 'All requested time slots are available',
+                    'availabilityData' => $availabilityData, // Pass the availability data
+                ]);
+
+            }
+            else{
+                return redirect('/account');
+            }
+
         }
 
         // If authentication fails, redirect back with an error message
