@@ -161,31 +161,28 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="bookingConfirmationLabel">Confirm Booking</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="bookingConfirmationLabel">Availability</h5>
+
             </div>
             <div class="modal-body">
                 @if(session('confirm_model'))
-                    <div class="alert alert-success d-flex align-items-center" role="alert">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-check-circle-fill me-2" width="24" height="24" fill="currentColor">
-                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.293 8.293a1 1 0 0 1-1.414 0L12 11.586 9.121 8.707a1 1 0 0 1 1.414-1.414L12 10.172l4.879-4.879a1 1 0 0 1 1.414 1.414z"/>
-                        </svg>
-                        <div>
-                            Your time slots are <strong>available</strong>!
-                        </div>
-                    </div>
-                    <p>Please find the available time slots below:</p>
-                    <ul id="dateTimeList" class="list-group">
+                <div class="alert alert-success" role="alert">
+
+                     <p><i class="fas fa-check-circle me-2 m-1" style="font-size: 1.5rem;"></i> Your selected time slots are <strong>available</strong>!</p>
+                    <hr>
+                    <p>Your selected time slots</p>
+
+                    <ul>
                         @foreach(session('confirm_model')['availabilityData'] as $data)
-                            <li class="list-group-item">
-                                {{ $data['date'] }} -
+                            <li >
+                                {{ $data['date'] }} :
                                 <strong>{{ date('g:i A', strtotime($data['start_time'])) }}</strong> to
                                 <strong>{{ date('g:i A', strtotime($data['end_time'])) }}</strong>
                             </li>
                         @endforeach
                     </ul>
+                       </div>
+
                 @else
                     <div class="alert alert-danger" role="alert">
                         <strong>No time slots are currently available.</strong> Please check back later.
@@ -193,19 +190,30 @@
                 @endif
 
                 @if(!Auth::check())
-                    <div class="alert alert-warning" role="alert">
-                        <strong>Login Required:</strong> To book the selected time slots, you need to log in.
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <i class="fas fa-exclamation-circle me-2 mt-1" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <strong>Registration Required:</strong> To book the selected time slots, you need to register.
                     </div>
-                    <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
-                @endif
+                </div>
+                <div class="mt-2">
+                    <a href="{{ route('register') }}" class="btn btn-primary w-100">Register</a>
+
+                </div>
+            @endif
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+                @if(!Auth::check())
+                <p class="">If you already have an account, <a href="{{ route('login') }}">Login in here</a>.</p>
+
+            @endif
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationModal').modal('hide')">Cancel</button>
                 @if(Auth::check() && session('confirm_model'))
-                    <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Confirm Booking</button>
-                    </form>
+                <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary">Proceed to Book Selected Time Slots</button>
+                </form>
                 @endif
             </div>
         </div>
