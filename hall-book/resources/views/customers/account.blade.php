@@ -81,16 +81,19 @@
                                     {{ Auth::user()->email }}
                                 </a>
                                 <div class="dropdown-divider"></div>
-
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <form method="POST" action="{{ route('logout') }}" style="display: inline;">
-                                        @csrf
-                                        <button type="submit" class="dropdown-item">
-                                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
-                                        </button>
-                                    </form>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-layer-group fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ Auth::user()->category }}
                                 </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-id-card fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ Auth::user()->NIC }}
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <!-- Optionally add another item here if needed -->
                             </div>
+
                         </li>
                     </ul>
                 </nav>
