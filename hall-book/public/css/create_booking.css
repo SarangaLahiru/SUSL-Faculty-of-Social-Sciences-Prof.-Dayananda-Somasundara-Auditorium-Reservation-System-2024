@@ -1,0 +1,91 @@
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.stepper::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    height: 1px;
+    width: 70%;
+    background-color: #dee2e6;
+    z-index: 0;
+}
+
+.step {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.card-body .stepper {
+    text-align: center;
+}
+
+.step .circle {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.step.active .circle {
+    background-color: #007bff;
+}
+
+.step .label {
+    margin-top: 5px;
+}
+
+.category-icon {
+    cursor: pointer;
+}
+
+.category-icon.selected {
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.category-icon {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+    margin: 10px 2px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px rgb(220, 220, 220) solid;
+}
+
+.category-icon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-icon i {
+    color: #64a3e6;
+    background-color: #e1f0ff;
+    padding: 20px 20px;
+    border-radius: 100%;
+}
+
+.category-icon p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #429af9;
+}
+
+#wave {
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+}

@@ -1,0 +1,98 @@
+.fc-icon,
+.fc-unselectable {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.fc .fc-button,
+.fc-icon {
+    text-transform: none;
+    text-align: center;
+}
+
+.fc-not-allowed,
+.fc-not-allowed .fc-event {
+    cursor: not-allowed;
+}
+
+.fc .fc-button:not(:disabled),
+.fc a[data-navlink],
+.fc-event.fc-event-draggable,
+.fc-event[href] {
+    cursor: pointer;
+}
+
+.fc-unselectable {
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fc {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+}
+
+.fc .fc-button,
+.fc-icon {
+    display: inline-block;
+    font-weight: 400;
+    -moz-user-select: none;
+}
+
+.fc,
+.fc *,
+.fc :after,
+.fc :before {
+    box-sizing: border-box;
+}
+
+.fc table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 1em;
+}
+
+.fc th {
+    text-align: center;
+}
+
+.fc td,
+.fc th {
+    vertical-align: top;
+    padding: 0;
+}
+
+.fc .fc-button,
+.fc .fc-button .fc-icon,
+.fc .fc-button-group,
+.fc .fc-timegrid-slot-label {
+    vertical-align: middle;
+}
+
+.fc a[data-navlink]:hover {
+    text-decoration: underline;
+}
+
+.fc-direction-ltr {
+    direction: ltr;
+    text-align: left;
+}
+
+.fc-direction-rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border: 1px solid #ddd;
+    border: 1px solid var(--fc-border-color, #ddd);
+}
+
+.fc-liquid-hack td,
+.fc-liquid-hack th {
+    position: relative;
+}
