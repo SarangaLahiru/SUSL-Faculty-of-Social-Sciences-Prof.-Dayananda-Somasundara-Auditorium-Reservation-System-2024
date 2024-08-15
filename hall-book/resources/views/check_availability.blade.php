@@ -210,10 +210,7 @@
             @endif
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationModal').modal('hide')">Cancel</button>
                 @if(Auth::check() && session('confirm_model'))
-                <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-primary">Proceed to Book Selected Time Slots</button>
-                </form>
+                <a href="/create-booking" class="btn btn-primary"></>Proceed to Book Selected Time Slots</a>
                 @endif
             </div>
         </div>
@@ -277,10 +274,9 @@
             @endif
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#bookingConfirmationalertModal').modal('hide')">Try another</button>
                 @if(Auth::check() && session('confirm_model_alert'))
-                <form id="confirmBookingForm" action="/check-multiple-days-availability" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-primary">Proceed to Book Selected Time Slots</button>
-                </form>
+
+                    <a href="/create-booking" class="btn btn-primary"></>Proceed to Book Selected Time Slots</a>
+
                 @endif
             </div>
         </div>
