@@ -18,11 +18,11 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav  sidebar toggled sidebar-dark accordion" style="background-color: rgb(35, 119, 255); id="accordionSideba">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#"">
                 <div class="sidebar-brand-icon">
-                    {{-- <i class="fas fa-laugh-wink"></i> --}}
+                    <i class="fas fa-building"></i>
                     {{-- <i class="fas fa-user-tie"></i> --}}
                 </div>
                 <div class="sidebar-brand-text mx-3">{{ Auth::user()->first_name }}</div>
@@ -37,22 +37,19 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
+
             <!-- Nav Item - Analytics -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.analytics') }}" aria-expanded="false" aria-controls="collapseUtilities">
+                <a class="nav-link" href="{{ route('admin.analytics') }}" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Analytics</span>
                 </a>
             </li>
 
-            <!-- Sidebar Toggler (Sidebar) -->
+            {{--  <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div>  --}}
         </ul>
         <!-- End of Sidebar -->
 
@@ -206,11 +203,11 @@
     </div>
 
     <!-- Scripts -->
-    {{--  <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    {{--  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  --}}
+    {{--  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>  --}}
     <script src="/js/sb-admin-2.min.js"></script>
-    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    {{--  <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="/js/demo/datatables-demo.js"></script>  --}}
 
