@@ -167,59 +167,62 @@
                         </div>
 
                         <!-- Modal for Viewing More Details -->
-                        <div class="modal fade" id="viewMoreModal{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="viewMoreModalLabel{{ $loop->iteration }}" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="viewMoreModalLabel{{ $loop->iteration }}">
-                                            Booking Details: #{{ $booking->id }}
-                                        </h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="mb-3">
-                                            <strong>Booking ID:</strong> {{ $booking->id }}
-                                        </div>
-                                        <div class="mb-3">
-                                            <strong>Created At:</strong> {{ $booking->created_at->format('Y-m-d H:i:s') }}
-                                        </div>
-                                        <div class="mb-3">
-                                            <strong>Event Type:</strong> {{ $booking->event_type }}
-                                        </div>
-                                        <div class="mb-3">
-                                            <strong>Status:</strong>
-                                            <span class="{{ $booking->status === 'pending' ? 'text-warning' : ($booking->status === 'accepted' ? 'text-success' : 'text-secondary') }}">
-                                                {{ ucfirst($booking->status) }}
-                                            </span>
-                                        </div>
-                                        <div class="mb-3">
-                                            <strong>Request Dates:</strong>
-                                            <ul>
-                                                @foreach ($booking->booking_dates as $date)
-                                                <li>{{ $date['date'] }} - {{ date('g:i A', strtotime($date['start_time'])) }} to {{ date('g:i A', strtotime($date['end_time'])) }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div class="mb-3">
-                                            <strong>Description:</strong> {{ $booking->description ?? 'N/A' }}
-                                        </div>
-                                        <div class="mb-3">
-                                            <strong>Documents:</strong>
-                                            @if($booking->documents)
-                                            <iframe src="{{ asset('storage/'.$booking->documents) }}" width="100%" height="500px" frameborder="0"></iframe>
-                                            @else
-                                            <p>No documents uploaded.</p>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<div class="modal fade" id="viewMoreModal{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="viewMoreModalLabel{{ $loop->iteration }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewMoreModalLabel{{ $loop->iteration }}">
+                    Booking Details: #{{ $booking->id }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <strong>Booking ID:</strong> {{ $booking->id }}
+                </div>
+                <div class="mb-3">
+                    <strong>Created At:</strong> {{ $booking->created_at->format('Y-m-d H:i:s') }}
+                </div>
+                <div class="mb-3">
+                    <strong>Event Type:</strong> {{ $booking->event_type }}
+                </div>
+                <div class="mb-3">
+                    <strong>Status:</strong>
+                    <span class="{{ $booking->status === 'pending' ? 'text-warning' : ($booking->status === 'accepted' ? 'text-success' : 'text-secondary') }}">
+                        {{ ucfirst($booking->status) }}
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <strong>Request Dates:</strong>
+                    <ul>
+                        @foreach ($booking->booking_dates as $date)
+                        <li>{{ $date['date'] }} - {{ date('g:i A', strtotime($date['start_time'])) }} to {{ date('g:i A', strtotime($date['end_time'])) }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="mb-3">
+                    <strong>Description:</strong> {{ $booking->description ?? 'N/A' }}
+                </div>
+                <div class="mb-3">
+                    <strong>Documents:</strong>
+                    @if($booking->documents)
+                        <a href="{{ asset('storage/'.$booking->documents) }}" target="_blank" class="btn btn-outline-primary">
+                            View Document in New Tab
+                        </a>
+                    @else
+                        <p>No documents uploaded.</p>
+                    @endif
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
                         @endforeach
                     </div>
 
