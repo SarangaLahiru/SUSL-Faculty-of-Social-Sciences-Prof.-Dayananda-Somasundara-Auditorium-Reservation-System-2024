@@ -203,7 +203,18 @@
                     </ul>
                 </div>
                 <div class="mb-3">
-                    <strong>Description:</strong> {{ $booking->description ?? 'N/A' }}
+                    <strong>Facilities:</strong>
+                    <ul>
+
+                        <li>{{ implode(', ', $booking->facilities) }}</li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="mb-3">
+                    <strong>Description:</strong> {{ $booking->event_description ?? 'N/A' }}
                 </div>
                 <div class="mb-3">
                     <strong>Documents:</strong>
