@@ -131,8 +131,7 @@
                     <div class="row">
                         @foreach ($bookings->sortByDesc('created_at') as $booking)
                         <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card shadow h-100 py-2
-                                {{ $booking->status === 'pending' ? 'border-left-warning' : ($booking->status === 'accepted' ? 'border-left-success' : 'border-left-secondary') }}">
+                            <div class="card shadow h-100 py-2 {{ $booking->status === 'pending' ? 'border-left-warning' : ($booking->status === 'accepted' ? 'border-left-success' : 'border-left-secondary') }}">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -159,7 +158,9 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mt-3">
-                                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#viewMoreModal{{ $loop->iteration }}">View More</button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#viewMoreModal{{ $loop->iteration }}">
+                                            View More
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -167,29 +168,50 @@
 
                         <!-- Modal for Viewing More Details -->
                         <div class="modal fade" id="viewMoreModal{{ $loop->iteration }}" tabindex="-1" role="dialog" aria-labelledby="viewMoreModalLabel{{ $loop->iteration }}" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="viewMoreModalLabel{{ $loop->iteration }}">Booking Details</h5>
+                                        <h5 class="modal-title" id="viewMoreModalLabel{{ $loop->iteration }}">
+                                            Booking Details: #{{ $booking->id }}
+                                        </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p><strong>Booking ID:</strong> {{ $booking->id }}</p>
-                                        <p><strong>Created At:</strong> {{ $booking->created_at->format('Y-m-d H:i:s') }}</p>
-                                        <p><strong>Event Type:</strong> {{ $booking->event_type }}</p>
-                                        <p><strong>Status:</strong> {{ $booking->status }}</p>
-                                        <p><strong>Request Dates:</strong></p>
-                                        <ul>
-                                            @foreach ($booking->booking_dates as $date)
-                                            <li>{{ $date['date'] }} - {{ date('g:i A', strtotime($date['start_time'])) }} to {{ date('g:i A', strtotime($date['end_time'])) }}</li>
-                                            @endforeach
-                                        </ul>
-                                        <p><strong>Description:</strong> {{ $booking->description }}</p>
-                                        <!-- Add more detailed fields as necessary -->
-                                        <div class="mt-3">
+                                        <div class="mb-3">
+                                            <strong>Booking ID:</strong> {{ $booking->id }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <strong>Created At:</strong> {{ $booking->created_at->format('Y-m-d H:i:s') }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <strong>Event Type:</strong> {{ $booking->event_type }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <strong>Status:</strong>
+                                            <span class="{{ $booking->status === 'pending' ? 'text-warning' : ($booking->status === 'accepted' ? 'text-success' : 'text-secondary') }}">
+                                                {{ ucfirst($booking->status) }}
+                                            </span>
+                                        </div>
+                                        <div class="mb-3">
+                                            <strong>Request Dates:</strong>
+                                            <ul>
+                                                @foreach ($booking->booking_dates as $date)
+                                                <li>{{ $date['date'] }} - {{ date('g:i A', strtotime($date['start_time'])) }} to {{ date('g:i A', strtotime($date['end_time'])) }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <div class="mb-3">
+                                            <strong>Description:</strong> {{ $booking->description ?? 'N/A' }}
+                                        </div>
+                                        <div class="mb-3">
+                                            <strong>Documents:</strong>
+                                            @if($booking->documents)
                                             <iframe src="{{ asset('storage/'.$booking->documents) }}" width="100%" height="500px" frameborder="0"></iframe>
+                                            @else
+                                            <p>No documents uploaded.</p>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -200,6 +222,7 @@
                         </div>
                         @endforeach
                     </div>
+
                 </div>
             </div>
         </div>
