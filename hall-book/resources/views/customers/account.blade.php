@@ -68,7 +68,7 @@
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
             </button>
-            <h2>Hi! {{ Auth::user()->first_name }}</h2>
+            <h2 class="h3 mb-0 text-gray-800">Hi! {{ Auth::user()->first_name }}</h2>
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Nav Item - Alerts -->
@@ -110,7 +110,7 @@
         <div class="container-fluid">
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                {{--  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>  --}}
             </div>
 
             <div class="col-xl-4 col-md-6 mb-4">
