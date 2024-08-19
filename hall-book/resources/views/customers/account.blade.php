@@ -118,23 +118,22 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div
-                                    class="text-xs font-weight-bold text-primary text-uppercase mb-1 d-flex align-items-center">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 d-flex align-items-center">
                                     <i class="fas fa-calendar-plus fa-2x mr-3 text-primary"></i>
                                     <span><strong>Create New Booking</strong></span>
                                 </div>
                                 <div class="mt-3">
-                                    <p class="text-muted small mb-0">Quickly schedule your next event or meeting with
-                                        just a few clicks.</p>
+                                    <p class="text-muted small mb-0">Please check availability before scheduling your next event or meeting. Quickly book with just a few clicks.</p>
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <a href="/" class="btn btn-primary btn-sm mt-3">Start Now</a>
+                                <a href="/" class="btn btn-primary btn-sm mt-3">Go to check availability</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             <!-- Search Bar -->
             <div class="row mb-4">
