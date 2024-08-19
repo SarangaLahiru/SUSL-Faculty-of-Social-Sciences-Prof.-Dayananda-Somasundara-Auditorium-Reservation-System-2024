@@ -87,8 +87,15 @@ Route::get('register', [CustomerController::class, 'showRegistrationForm'])->nam
 Route::post('register', [CustomerController::class, 'register']);
 
 // Account Page
-Route::get('account', [CustomerController::class, 'account'])->middleware('auth')->name('account');
+Route::middleware(['auth'])->group(function () {
+    // Account route
+    Route::get('/account', [CustomerController::class, 'account'])->name('account');
 
+    // Profile routes
+    Route::get('/profile', [CustomerController::class, 'profile'])->name('customer.profile');
+    Route::get('/profile/edit', [CustomerController::class, 'editProfile'])->name('customer.profile.edit');
+    Route::post('/profile/update', [CustomerController::class, 'updateProfile'])->name('customer.profile.update');
+});
 Route::get('password/reset', [CustomerController::class, 'showLinkRequestForm'])->name('password.request');
 Route::post('password/email', [CustomerController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('password/reset/{token}', [CustomerController::class, 'showPasswordResetForm'])->name('password.reset');

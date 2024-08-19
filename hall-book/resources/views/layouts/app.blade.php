@@ -48,7 +48,7 @@
                             <ul class="navbar-nav m-auto">
                                 @auth
                                 <li class="nav-item">
-                                    <a href="/account" class="nav-link {{ request()->is('account') ? 'active1' : '' }}">
+                                    <a href="/account" class="nav-link {{ request()->is('account', 'profile','profile/edit') ? 'active1' : '' }}">
                                         Profile
                                     </a>
                                 </li>
@@ -107,9 +107,11 @@
                                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                                     <div>
                                                         <span>{{ Auth::user()->email }}</span><br>
+
                                                         <small class="text-muted">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</small>
                                                     </div>
-                                                </a>
+                                                </div>
+                                            </a>
                                         </li>
                                         <li>
                                             <div class="dropdown-divider"></div>

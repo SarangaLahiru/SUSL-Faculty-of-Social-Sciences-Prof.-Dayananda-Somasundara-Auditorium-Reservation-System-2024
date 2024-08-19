@@ -36,7 +36,7 @@
 <hr class="sidebar-divider my-0">
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="{{ route('admin.dashboard') }}">
+    <a class="nav-link" href="{{ route('account') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>
@@ -45,9 +45,12 @@
 
 <!-- Nav Item - Analytics -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.analytics') }}" aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-fw fa-wrench"></i>
-        <span>Analytics</span>
+    <a class="nav-link"
+       href="{{ route('customer.profile') }}"
+       aria-expanded="true"
+       aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-user"></i>
+        <span>Profile</span>
     </a>
 </li>
 

@@ -155,6 +155,126 @@ class CustomerController extends Controller
         $bookings = Booking::where('userID', $userId)->get();
         return view('customers.account', compact('bookings'));
     }
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('customers.profile', compact('user'));
+    }
+
+    /**
+     * Show the form for editing the customer's profile.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function editProfile()
+    {
+        $user = Auth::user();
+        $faculties = [
+            'Faculty of Agricultural Sciences',
+            'Faculty of Applied Sciences',
+            'Faculty of Computing',
+            'Faculty of Geomatics',
+            'Faculty of Graduate Studies',
+            'Faculty of Management Studies',
+            'Faculty of Medicine',
+            'Faculty of Social Sciences and Languages',
+            'Faculty of Technology',
+            // Add more faculties as needed
+        ];
+        $departments = [
+            'Faculty of Agricultural Sciences' => [
+                'Department of Agribusiness Management',
+                'Department of Export Agriculture',
+                'Department of Livestock Production'
+            ],
+            'Faculty of Applied Sciences' => [
+                'Department of Food Science & Technology',
+                'Department of Physical Sciences & Technology',
+                'Department of Sports Sciences & Physical Education'
+            ],
+            'Faculty of Computing' => [
+                'Department of Software Engineering',
+                'Department of Computing and Information Systems',
+                'Department of Data Science'
+            ],
+            'Faculty of Geomatics' => [
+                'Department of Surveying & Geodesy',
+                'Department of Remote Sensing & GIS'
+            ],
+            'Faculty of Graduate Studies' => [
+                'Agricultural Sciences',
+                'Computing & Information Systems',
+                'Geomatics',
+                'Humanities',
+                'Management',
+                'Physical & Natural Sciences',
+                'Social Sciences',
+                'Sports Science & Physical Education',
+                'Medicine',
+                'Technology',
+                'Indigenous Knowledge & Community Studies'
+            ],
+            'Faculty of Management Studies' => [
+                'Department of Business Management',
+                'Department of Tourism Management',
+                'Department of Accountancy & Finance',
+                'Department of Marketing Management'
+            ],
+            'Faculty of Medicine' => [
+                'Anatomy',
+                'Biochemistry',
+                'Community Medicine',
+                'Forensic Medicine & Toxicology',
+                'Medicine',
+                'Microbiology',
+                'Obstetrics and Gynaecology',
+                'Paediatrics',
+                'Parasitology',
+                'Pathology',
+                'Pharmacology',
+                'Physiology',
+                'Primary Care & Family Medicine',
+                'Psychiatry',
+                'Surgery'
+            ],
+            'Faculty of Social Sciences and Languages' => [
+                'Department of Social Sciences',
+                'Department of English Language Teaching',
+                'Department of Geography & Environmental Management',
+                'Department of Information Technology',
+                'Department of Languages'
+            ],
+            'Faculty of Technology' => [
+                'Department of Engineering Technology',
+                'Department of Biosystems Technology'
+            ]
+        ];
+
+
+        return view('customers.edit-profile', compact('user','faculties','departments'));
+    }
+
+    /**
+     * Update the customer's profile.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            // Add more validation rules as needed
+        ]);
+
+        $user->update($request->only('name', 'email'));
+
+        return redirect()->route('customer.profile')->with('success', 'Profile updated successfully.');
+    }
+
 
     // Show forgot password form
     public function showLinkRequestForm()
