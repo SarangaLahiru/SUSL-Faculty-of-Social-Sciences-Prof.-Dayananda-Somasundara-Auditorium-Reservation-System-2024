@@ -48,45 +48,42 @@
                             <ul class="navbar-nav m-auto">
                                 @auth
                                 <li class="nav-item">
-                                    <a href="/account" class="nav-link">
+                                    <a href="/account" class="nav-link {{ request()->is('account') ? 'active1' : '' }}">
                                         Profile
                                     </a>
                                 </li>
-
                                 @endauth
                                 <li class="nav-item">
-                                    <a href="/" class="nav-link">
+                                    <a href="/" class="nav-link {{ request()->is('/') ? 'active1' : '' }}">
                                         Booking
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/calendar" class="nav-link">
+                                    <a href="/calendar" class="nav-link {{ request()->is('calendar') ? 'active1' : '' }}">
                                         Calendar
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/staff" class="nav-link">
+                                    <a href="/staff" class="nav-link {{ request()->is('staff') ? 'active1' : '' }}">
                                         Staff & Resources
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/resources" class="nav-link">
+                                    <a href="/resources" class="nav-link {{ request()->is('resources') ? 'active1' : '' }}">
                                         Past Events
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/support" class="nav-link">
+                                    <a href="/support" class="nav-link {{ request()->is('support') ? 'active1' : '' }}">
                                         Help
                                     </a>
                                 </li>
                             </ul>
                             <div class="navbar-btn d-none d-sm-inline-block">
                                 {{-- Commented out contact details --}}
-
                             </div>
                             <ul class="navbar-nav">
                                 @auth
-                                <!-- User is authenticated -->
                                 <li class="dropdown">
                                     <a
                                         class="nav-link dropdown-toggle"
@@ -103,7 +100,6 @@
                                             {{ strtoupper(Auth::user()->first_name[0] ?? '') }}{{ strtoupper(Auth::user()->last_name[0] ?? '') }}
                                         </span>
                                     </a>
-
                                     <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="navbarDropdown">
                                         <li>
                                             <a class="dropdown-item" href="#">
@@ -111,13 +107,10 @@
                                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                                     <div>
                                                         <span>{{ Auth::user()->email }}</span><br>
-
                                                         <small class="text-muted">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</small>
                                                     </div>
-                                                </div>
-                                            </a>
+                                                </a>
                                         </li>
-
                                         <li>
                                             <div class="dropdown-divider"></div>
                                         </li>
@@ -140,10 +133,8 @@
                                             </form>
                                         </li>
                                     </ul>
-
                                 </li>
                                 @else
-                                <!-- User is not authenticated -->
                                 <div class="navbar-btn d-non d-sm-inline-block">
                                     <ul>
                                         <li>
@@ -161,16 +152,12 @@
                                 @endauth
                             </ul>
                         </div>
-
                     </nav>
-
-                    <!-- navbar -->
                 </div>
             </div>
-            <!-- row -->
         </div>
-        <!-- container -->
     </section>
+
     <!--====== NAVBAR ONE PART ENDS ======-->
 
     <div>
