@@ -125,12 +125,7 @@
                                     </div>
                                 @endif
 
-                                @if($user->NIC)
-                                    <div class="form-group">
-                                        <label for="NIC">NIC</label>
-                                        <input type="text" name="NIC" id="NIC" class="form-control" value="{{ old('NIC', $user->NIC) }}">
-                                    </div>
-                                @endif
+
 
                                 @if($user->student_no)
                                     <div class="form-group">

@@ -169,89 +169,10 @@ class CustomerController extends Controller
     public function editProfile()
     {
         $user = Auth::user();
-        $faculties = [
-            'Faculty of Agricultural Sciences',
-            'Faculty of Applied Sciences',
-            'Faculty of Computing',
-            'Faculty of Geomatics',
-            'Faculty of Graduate Studies',
-            'Faculty of Management Studies',
-            'Faculty of Medicine',
-            'Faculty of Social Sciences and Languages',
-            'Faculty of Technology',
-            // Add more faculties as needed
-        ];
-        $departments = [
-            'Faculty of Agricultural Sciences' => [
-                'Department of Agribusiness Management',
-                'Department of Export Agriculture',
-                'Department of Livestock Production'
-            ],
-            'Faculty of Applied Sciences' => [
-                'Department of Food Science & Technology',
-                'Department of Physical Sciences & Technology',
-                'Department of Sports Sciences & Physical Education'
-            ],
-            'Faculty of Computing' => [
-                'Department of Software Engineering',
-                'Department of Computing and Information Systems',
-                'Department of Data Science'
-            ],
-            'Faculty of Geomatics' => [
-                'Department of Surveying & Geodesy',
-                'Department of Remote Sensing & GIS'
-            ],
-            'Faculty of Graduate Studies' => [
-                'Agricultural Sciences',
-                'Computing & Information Systems',
-                'Geomatics',
-                'Humanities',
-                'Management',
-                'Physical & Natural Sciences',
-                'Social Sciences',
-                'Sports Science & Physical Education',
-                'Medicine',
-                'Technology',
-                'Indigenous Knowledge & Community Studies'
-            ],
-            'Faculty of Management Studies' => [
-                'Department of Business Management',
-                'Department of Tourism Management',
-                'Department of Accountancy & Finance',
-                'Department of Marketing Management'
-            ],
-            'Faculty of Medicine' => [
-                'Anatomy',
-                'Biochemistry',
-                'Community Medicine',
-                'Forensic Medicine & Toxicology',
-                'Medicine',
-                'Microbiology',
-                'Obstetrics and Gynaecology',
-                'Paediatrics',
-                'Parasitology',
-                'Pathology',
-                'Pharmacology',
-                'Physiology',
-                'Primary Care & Family Medicine',
-                'Psychiatry',
-                'Surgery'
-            ],
-            'Faculty of Social Sciences and Languages' => [
-                'Department of Social Sciences',
-                'Department of English Language Teaching',
-                'Department of Geography & Environmental Management',
-                'Department of Information Technology',
-                'Department of Languages'
-            ],
-            'Faculty of Technology' => [
-                'Department of Engineering Technology',
-                'Department of Biosystems Technology'
-            ]
-        ];
 
 
-        return view('customers.edit-profile', compact('user','faculties','departments'));
+
+        return view('customers.edit-profile', compact('user'));
     }
 
     /**
@@ -264,16 +185,45 @@ class CustomerController extends Controller
     {
         $user = Auth::user();
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-            // Add more validation rules as needed
+        // Define validation rules
+        $rules = [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone_number' => 'nullable|string|max:10',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'student_no' => 'nullable|string|max:50',
+            'faculty' => 'nullable|string|max:255',
+            'department' => 'nullable|string|max:255',
+            'institution' => 'nullable|string|max:255',
+            'division' => 'nullable|string|max:255',
+            'society' => 'nullable|string|max:255',
+            'post' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+        ];
+
+        // Validate the request data
+        $validated = $request->validate($rules);
+
+        // Update user profile with validated data
+        $user->update([
+            'first_name' => $validated['first_name'],
+            'last_name' => $validated['last_name'],
+            'phone_number' => $validated['phone_number'],
+            'email' => $validated['email'],
+            'student_no' => $validated['student_no'] ?? $user->student_no,
+            'faculty' => $validated['faculty'] ?? $user->faculty,
+            'department' => $validated['department'] ?? $user->department,
+            'institution' => $validated['institution'] ?? $user->institution,
+            'division' => $validated['division'] ?? $user->division,
+            'society' => $validated['society'] ?? $user->society,
+            'post' => $validated['post'] ?? $user->post,
+            'address' => $validated['address'] ?? $user->address,
         ]);
 
-        $user->update($request->only('name', 'email'));
-
+        // Redirect with a success message
         return redirect()->route('customer.profile')->with('success', 'Profile updated successfully.');
     }
+
 
 
     // Show forgot password form
