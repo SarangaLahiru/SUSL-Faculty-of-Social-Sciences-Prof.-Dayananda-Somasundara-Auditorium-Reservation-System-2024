@@ -606,6 +606,7 @@
                     document.getElementById('Other1').style.display = 'block';
                     document.getElementById('Other').style.display = 'block';
                     document.getElementById('societyL').innerText = 'Society/ Association';
+                    document.getElementById('fileInputl').innerText = 'Upload your verification document.';
 
                 } else if (selectedCategory === 'external') {
                     $('#studentNoField').hide();
@@ -736,7 +737,7 @@
                 var fileInput = $('#fileInput')[0];
                 var validFile = true;
                 var validTerms = true;
-                if (selectedCategory === 'external') {
+                if (selectedCategory === 'external' || selectedCategory === 'student') {
                     if (fileInput.files.length === 0) {
                         $('#fileInput').addClass('is-invalid');
                         validFile = false;
