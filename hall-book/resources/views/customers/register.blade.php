@@ -120,7 +120,9 @@
                     <div class="form-section">
                         <div class="col-12 mb-5">
                             <h2 class="h3">Register</h2>
-                            <h3 class="fs-6 fw-normal text-secondary m-0">Create Your  account as {{ old('selectedCategory')  }}</h3>
+                            <h3 id="categoryText" class="fs-6 fw-normal text-secondary m-0">
+                                Create Your account as
+                            </h3>
                         </div>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -350,6 +352,8 @@
                                 <input type="hidden" name="selectedCategory" id="selectedCategory" value="{{ old('selectedCategory') }}">
     <input type="hidden" name="formSubmitted" id="formSubmitted" value="1">
                                 <input type="hidden" name="category" id="Category">
+                                {{--  <input type="hidden" name="selectedCategory1" id="selectedCategory1" value="{{ isset($selectedCategory) ? $selectedCategory : '' }}">  --}}
+
 
                                 <div class="col-6">
                                     <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
@@ -400,6 +404,8 @@
     <script>
         let selectedCategory = document.getElementById('selectedCategory').value;
 
+
+
         function selectCategory(category) {
             selectedCategory = category;
             document.getElementById('selectedCategory').value = category;
@@ -416,6 +422,7 @@
                 $('#form').show();
 
                 showConditionalFields(selectedCategory);
+
             } else {
                 alert('Please select a category.');
             }

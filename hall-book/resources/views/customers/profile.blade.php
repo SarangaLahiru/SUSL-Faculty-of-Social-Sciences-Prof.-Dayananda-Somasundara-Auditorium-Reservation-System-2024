@@ -31,6 +31,7 @@
             {{-- <i class="fas fa-user-tie"></i> --}}
 </div>
 <div class="sidebar-brand-text mx-3">{{ Auth::user()->first_name }}</div>
+
 </a>
 <!-- Divider -->
 <hr class="sidebar-divider my-0">
@@ -39,6 +40,7 @@
     <a class="nav-link" href="{{ route('account') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
+
 </li>
 <!-- Divider -->
 <hr class="sidebar-divider">
