@@ -120,7 +120,7 @@
                     <div class="form-section">
                         <div class="col-12 mb-5">
                             <h2 class="h3">Register</h2>
-                            <h3 class="fs-6 fw-normal text-secondary m-0">Create Your  account</h3>
+                            <h3 class="fs-6 fw-normal text-secondary m-0">Create Your  account as {{ old('selectedCategory')  }}</h3>
                         </div>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
@@ -128,7 +128,7 @@
                                 <!-- Common Fields -->
                                 <div class="col-md-6">
                                     <label for="first_name" class="form-label">First Name <span class="text-danger">*</span></label>
-                                    <input type="text" id="first_name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" placeholder="First Name">
+                                    <input type="text" id="first_name" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}"  placeholder="First Name">
                                     @error('first_name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
-                                    <input type="text" id="last_name" class="form-control @error('last_name') is-invalid @enderror" name="last_name" placeholder="Last Name">
+                                    <input type="text" id="last_name" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}"  placeholder="Last Name">
                                     @error('last_name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="nic_number" class="form-label">NIC Number <span class="text-danger">*</span></label>
-                                    <input type="text" id="nic_number" class="form-control @error('nic_number') is-invalid @enderror" name="nic_number" placeholder="NIC Number">
+                                    <input type="text" id="nic_number" class="form-control @error('nic_number') is-invalid @enderror" name="nic_number" value="{{ old('nic_number') }}"  placeholder="NIC Number">
                                     @error('nic_number')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone_number" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                                    <input type="tel" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" placeholder="Phone Number">
+                                    <input type="tel" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}"  placeholder="Phone Number">
                                     @error('phone_number')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email Address<span class="text-danger">*</span></label>
-                                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email">
+                                    <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  placeholder="Email">
                                     @error('email')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -175,7 +175,7 @@
                                 <!-- Conditional Fields -->
                                 <div id="studentNoField" class="col-md-6" style="display: none;">
                                     <label for="student_no" class="form-label">Student Registration No</label>
-                                    <input type="text" id="student_no" class="form-control @error('student_no') is-invalid @enderror" name="student_no" placeholder="Student Number">
+                                    <input type="text" id="student_no" class="form-control @error('student_no') is-invalid @enderror" name="student_no" value="{{ old('student_no') }}"  placeholder="Student Number">
                                     @error('student_no')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -209,26 +209,89 @@
                                     <select class="form-control @error('department') is-invalid @enderror" id="department" name="department">
                                         <option value="">select</option>
                                         <option id="Other1" value="none" style="display:none;">None</option>
+                                        <!-- Faculty of Agricultural Sciences -->
                                         <optgroup label="Faculty of Agricultural Sciences">
                                             <option value="Department of Agribusiness Management">Department of Agribusiness Management</option>
-                                            <option value="Department of Export Agriculture">Department of Export Agriculture</option>
-                                            <option value="Department of Livestock Production">Department of Livestock Production</option>
+                                            <option value="Department of Export Agriculture" >Department of Export Agriculture</option>
+                                            <option value="Department of Livestock Production" >Department of Livestock Production</option>
                                         </optgroup>
+
+                                        <!-- Faculty of Applied Sciences -->
                                         <optgroup label="Faculty of Applied Sciences">
-                                            <option value="Department of Food Science & Technology">Department of Food Science & Technology</option>
-                                            <option value="Department of Physical Sciences & Technology">Department of Physical Sciences & Technology</option>
-                                            <option value="Department of Sports Sciences & Physical Education">Department of Sports Sciences & Physical Education</option>
+                                            <option value="Department of Food Science & Technology" >Department of Food Science & Technology</option>
+                                            <option value="Department of Physical Sciences & Technology" >Department of Physical Sciences & Technology</option>
+                                            <option value="Department of Sports Sciences & Physical Education" >Department of Sports Sciences & Physical Education</option>
                                         </optgroup>
+
+                                        <!-- Faculty of Computing -->
                                         <optgroup label="Faculty of Computing">
-                                            <option value="Department of Software Engineering">Department of Software Engineering</option>
+                                            <option value="Department of Software Engineering" >Department of Software Engineering</option>
                                             <option value="Department of Computing and Information Systems">Department of Computing and Information Systems</option>
-                                            <option value="Department of Data Science">Department of Data Science</option>
+                                            <option value="Department of Data Science" >Department of Data Science</option>
                                         </optgroup>
+
+                                        <!-- Faculty of Geomatics -->
                                         <optgroup label="Faculty of Geomatics">
                                             <option value="Department of Surveying & Geodesy">Department of Surveying & Geodesy</option>
-                                            <option value="Department of Remote Sensing & GIS">Department of Remote Sensing & GIS</option>
+                                            <option value="Department of Remote Sensing & GIS" >Department of Remote Sensing & GIS</option>
                                         </optgroup>
-                                        <!-- More options -->
+
+                                        <!-- Faculty of Graduate Studies -->
+                                        <optgroup label="Faculty of Graduate Studies">
+                                            <option value="Agricultural Sciences">Agricultural Sciences</option>
+                                            <option value="Computing & Information Systems">Computing & Information Systems</option>
+                                            <option value="Geomatics">Geomatics</option>
+                                            <option value="Humanities" >Humanities</option>
+                                            <option value="Management" >Management</option>
+                                            <option value="Physical & Natural Sciences" >Physical & Natural Sciences</option>
+                                            <option value="Social Sciences" >Social Sciences</option>
+                                            <option value="Sports Science & Physical Education" >Sports Science & Physical Education</option>
+                                            <option value="Medicine" >Medicine</option>
+                                            <option value="Technology" >Technology</option>
+                                            <option value="Indigenous Knowledge & Community Studies">Indigenous Knowledge & Community Studies</option>
+                                        </optgroup>
+
+                                        <!-- Faculty of Management Studies -->
+                                        <optgroup label="Faculty of Management Studies">
+                                            <option value="Department of Business Management" >Department of Business Management</option>
+                                            <option value="Department of Tourism Management" >Department of Tourism Management</option>
+                                            <option value="Department of Accountancy & Finance" >Department of Accountancy & Finance</option>
+                                            <option value="Department of Marketing Management" >Department of Marketing Management</option>
+                                        </optgroup>
+
+                                        <!-- Faculty of Medicine -->
+                                        <optgroup label="Faculty of Medicine">
+                                            <option value="Anatomy" >Anatomy</option>
+                                            <option value="Biochemistry" >Biochemistry</option>
+                                            <option value="Community Medicine" >Community Medicine</option>
+                                            <option value="Forensic Medicine & Toxicology" >Forensic Medicine & Toxicology</option>
+                                            <option value="Medicine" >Medicine</option>
+                                            <option value="Microbiology" >Microbiology</option>
+                                            <option value="Obstetrics and Gynaecology" >Obstetrics and Gynaecology</option>
+                                            <option value="Paediatrics" >Paediatrics</option>
+                                            <option value="Parasitology" >Parasitology</option>
+                                            <option value="Pathology" >Pathology</option>
+                                            <option value="Pharmacology" >Pharmacology</option>
+                                            <option value="Physiology" >Physiology</option>
+                                            <option value="Primary Care & Family Medicine">Primary Care & Family Medicine</option>
+                                            <option value="Psychiatry" >Psychiatry</option>
+                                            <option value="Surgery" >Surgery</option>
+                                        </optgroup>
+
+                                        <!-- Faculty of Social Sciences and Languages -->
+                                        <optgroup label="Faculty of Social Sciences and Languages">
+                                            <option value="Department of Social Sciences">Department of Social Sciences</option>
+                                            <option value="Department of English Language Teaching" >Department of English Language Teaching</option>
+                                            <option value="Department of Geography & Environmental Management" >Department of Geography & Environmental Management</option>
+                                            <option value="Department of Information Technology" >Department of Information Technology</option>
+                                            <option value="Department of Languages">Department of Languages</option>
+                                        </optgroup>
+
+                                        <!-- Faculty of Technology -->
+                                        <optgroup label="Faculty of Technology">
+                                            <option value="Department of Engineering Technology" >Department of Engineering Technology</option>
+                                            <option value="Department of Biosystems Technology" >Department of Biosystems Technology</option>
+                                        </optgroup>
                                     </select>
                                     @error('department')
                                         <div class="invalid-feedback">
@@ -238,7 +301,7 @@
                                 </div>
                                 <div id="institutionField" class="col-md-6" style="display: none;">
                                     <label for="institution" class="form-label">Name of the institution</label>
-                                    <input type="text" id="institution" class="form-control @error('institution') is-invalid @enderror" name="institution" placeholder="Institution">
+                                    <input type="text" id="institution" class="form-control @error('institution') is-invalid @enderror" name="institution" value="{{ old('institution') }}"  placeholder="Institution">
                                     @error('institution')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -247,7 +310,7 @@
                                 </div>
                                 <div id="divisionField" class="col-md-6" style="display: none;">
                                     <label for="division">Name of the Division/Centre/Unit</label>
-                                    <input type="text" class="form-control @error('division') is-invalid @enderror" id="division" name="division"
+                                    <input type="text" class="form-control @error('division') is-invalid @enderror" id="division" name="division"  value="{{ old('division') }}"
                                         placeholder="If not, please mention that as 'None'">
                                         @error('division')
                                         <div class="invalid-feedback">
@@ -257,7 +320,7 @@
                                 </div>
                                 <div id="societyField" class="col-md-6" style="display: none;">
                                     <label for="society" id="societyL" class="form-label">Society</label>
-                                    <input type="text" id="society" class="form-control @error('society') is-invalid @enderror" name="society" placeholder="Society">
+                                    <input type="text" id="society" class="form-control @error('society') is-invalid @enderror" name="society"  value="{{ old('society') }}" placeholder="Society">
                                     @error('society')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -266,7 +329,7 @@
                                 </div>
                                 <div id="postField" class="col-md-6" style="display: none;">
                                     <label for="post" class="form-label">Designation</label>
-                                    <input type="text" id="post" class="form-control @error('post') is-invalid @enderror" name="post" placeholder="Designation">
+                                    <input type="text" id="post" class="form-control @error('post') is-invalid @enderror" name="post"  value="{{ old('post') }}" placeholder="Designation">
                                     @error('post')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -275,7 +338,7 @@
                                 </div>
                                 <div id="addressField" class="col-md-12" style="display: none;">
                                     <label for="address" class="form-label">Address</label>
-                                    <input type="text" id="address" class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address">
+                                    <input type="text" id="address" class="form-control @error('address') is-invalid @enderror" name="address"  value="{{ old('address') }}" placeholder="Address">
                                     @error('address')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -284,7 +347,7 @@
                                 </div>
 
                                 <!-- Additional Information -->
-                                <input type="hidden" name="selectedCategory" id="selectedCategory" value="{{ old('selectedCategory', session('selectedCategory')) }}">
+                                <input type="hidden" name="selectedCategory" id="selectedCategory" value="{{ old('selectedCategory') }}">
     <input type="hidden" name="formSubmitted" id="formSubmitted" value="1">
                                 <input type="hidden" name="category" id="Category">
 
