@@ -121,7 +121,7 @@
                         <div class="col-12 mb-5">
                             <h2 class="h3">Register</h2>
                             <h3 id="categoryText" class="fs-6 fw-normal text-secondary m-0">
-                                Create Your account as
+                                Create Your account
                             </h3>
                         </div>
                         <form method="POST" action="{{ route('register') }}">
@@ -187,18 +187,17 @@
                                 <div id="facultyField" class="col-md-6" style="display: none;">
                                     <label for="faculty" id="Otherl">Name of the Faculty</label>
                                     <select class="form-control @error('faculty') is-invalid @enderror" id="faculty" name="faculty">
-                                        <option value="">select</option>
-                                        <option id="Other" style="display: none;" value="none">None</option>
-                                        <!-- Add more options as needed -->
-                                        <option value="Faculty of Agricultural Sciences">Faculty of Agricultural Sciences</option>
-                                        <option value="Faculty of Applied Sciences">Faculty of Applied Sciences</option>
-                                        <option value="Faculty of Computing">Faculty of Computing</option>
-                                        <option value="Faculty of Geomatics">Faculty of Geomatics</option>
-                                        <option value="Faculty of Graduate Studies">Faculty of Graduate Studies</option>
-                                        <option value="Faculty of Management Studies">Faculty of Management Studies</option>
-                                        <option value="Faculty of Medicine">Faculty of Medicine</option>
-                                        <option value="Faculty of Social Sciences and Languages">Faculty of Social Sciences and Languages</option>
-                                        <option value="Faculty of Technology">Faculty of Technology</option>
+                                        <option value="">Select</option>
+                                        <option value="none" {{ old('faculty') == 'none' ? 'selected' : '' }}>None</option>
+                                        <option value="Faculty of Agricultural Sciences" {{ old('faculty') == 'Faculty of Agricultural Sciences' ? 'selected' : '' }}>Faculty of Agricultural Sciences</option>
+                                        <option value="Faculty of Applied Sciences" {{ old('faculty') == 'Faculty of Applied Sciences' ? 'selected' : '' }}>Faculty of Applied Sciences</option>
+                                        <option value="Faculty of Computing" {{ old('faculty') == 'Faculty of Computing' ? 'selected' : '' }}>Faculty of Computing</option>
+                                        <option value="Faculty of Geomatics" {{ old('faculty') == 'Faculty of Geomatics' ? 'selected' : '' }}>Faculty of Geomatics</option>
+                                        <option value="Faculty of Graduate Studies" {{ old('faculty') == 'Faculty of Graduate Studies' ? 'selected' : '' }}>Faculty of Graduate Studies</option>
+                                        <option value="Faculty of Management Studies" {{ old('faculty') == 'Faculty of Management Studies' ? 'selected' : '' }}>Faculty of Management Studies</option>
+                                        <option value="Faculty of Medicine" {{ old('faculty') == 'Faculty of Medicine' ? 'selected' : '' }}>Faculty of Medicine</option>
+                                        <option value="Faculty of Social Sciences and Languages" {{ old('faculty') == 'Faculty of Social Sciences and Languages' ? 'selected' : '' }}>Faculty of Social Sciences and Languages</option>
+                                        <option value="Faculty of Technology" {{ old('faculty') == 'Faculty of Technology' ? 'selected' : '' }}>Faculty of Technology</option>
                                     </select>
                                     @error('faculty')
                                         <div class="invalid-feedback">
@@ -209,90 +208,91 @@
                                 <div id="departmentField" class="col-md-6" style="display: none;">
                                     <label for="department">Name of the Department</label>
                                     <select class="form-control @error('department') is-invalid @enderror" id="department" name="department">
-                                        <option value="">select</option>
-                                        <option id="Other1" value="none" style="display:none;">None</option>
+                                        <option value="">Select</option>
+                                        <option value="none" {{ old('department') == 'none' ? 'selected' : '' }} style="display:none;">None</option>
+
                                         <!-- Faculty of Agricultural Sciences -->
                                         <optgroup label="Faculty of Agricultural Sciences">
-                                            <option value="Department of Agribusiness Management">Department of Agribusiness Management</option>
-                                            <option value="Department of Export Agriculture" >Department of Export Agriculture</option>
-                                            <option value="Department of Livestock Production" >Department of Livestock Production</option>
+                                            <option value="Department of Agribusiness Management" {{ old('department') == 'Department of Agribusiness Management' ? 'selected' : '' }}>Department of Agribusiness Management</option>
+                                            <option value="Department of Export Agriculture" {{ old('department') == 'Department of Export Agriculture' ? 'selected' : '' }}>Department of Export Agriculture</option>
+                                            <option value="Department of Livestock Production" {{ old('department') == 'Department of Livestock Production' ? 'selected' : '' }}>Department of Livestock Production</option>
                                         </optgroup>
 
                                         <!-- Faculty of Applied Sciences -->
                                         <optgroup label="Faculty of Applied Sciences">
-                                            <option value="Department of Food Science & Technology" >Department of Food Science & Technology</option>
-                                            <option value="Department of Physical Sciences & Technology" >Department of Physical Sciences & Technology</option>
-                                            <option value="Department of Sports Sciences & Physical Education" >Department of Sports Sciences & Physical Education</option>
+                                            <option value="Department of Food Science & Technology" {{ old('department') == 'Department of Food Science & Technology' ? 'selected' : '' }}>Department of Food Science & Technology</option>
+                                            <option value="Department of Physical Sciences & Technology" {{ old('department') == 'Department of Physical Sciences & Technology' ? 'selected' : '' }}>Department of Physical Sciences & Technology</option>
+                                            <option value="Department of Sports Sciences & Physical Education" {{ old('department') == 'Department of Sports Sciences & Physical Education' ? 'selected' : '' }}>Department of Sports Sciences & Physical Education</option>
                                         </optgroup>
 
                                         <!-- Faculty of Computing -->
                                         <optgroup label="Faculty of Computing">
-                                            <option value="Department of Software Engineering" >Department of Software Engineering</option>
-                                            <option value="Department of Computing and Information Systems">Department of Computing and Information Systems</option>
-                                            <option value="Department of Data Science" >Department of Data Science</option>
+                                            <option value="Department of Software Engineering" {{ old('department') == 'Department of Software Engineering' ? 'selected' : '' }}>Department of Software Engineering</option>
+                                            <option value="Department of Computing and Information Systems" {{ old('department') == 'Department of Computing and Information Systems' ? 'selected' : '' }}>Department of Computing and Information Systems</option>
+                                            <option value="Department of Data Science" {{ old('department') == 'Department of Data Science' ? 'selected' : '' }}>Department of Data Science</option>
                                         </optgroup>
 
                                         <!-- Faculty of Geomatics -->
                                         <optgroup label="Faculty of Geomatics">
-                                            <option value="Department of Surveying & Geodesy">Department of Surveying & Geodesy</option>
-                                            <option value="Department of Remote Sensing & GIS" >Department of Remote Sensing & GIS</option>
+                                            <option value="Department of Surveying & Geodesy" {{ old('department') == 'Department of Surveying & Geodesy' ? 'selected' : '' }}>Department of Surveying & Geodesy</option>
+                                            <option value="Department of Remote Sensing & GIS" {{ old('department') == 'Department of Remote Sensing & GIS' ? 'selected' : '' }}>Department of Remote Sensing & GIS</option>
                                         </optgroup>
 
                                         <!-- Faculty of Graduate Studies -->
                                         <optgroup label="Faculty of Graduate Studies">
-                                            <option value="Agricultural Sciences">Agricultural Sciences</option>
-                                            <option value="Computing & Information Systems">Computing & Information Systems</option>
-                                            <option value="Geomatics">Geomatics</option>
-                                            <option value="Humanities" >Humanities</option>
-                                            <option value="Management" >Management</option>
-                                            <option value="Physical & Natural Sciences" >Physical & Natural Sciences</option>
-                                            <option value="Social Sciences" >Social Sciences</option>
-                                            <option value="Sports Science & Physical Education" >Sports Science & Physical Education</option>
-                                            <option value="Medicine" >Medicine</option>
-                                            <option value="Technology" >Technology</option>
-                                            <option value="Indigenous Knowledge & Community Studies">Indigenous Knowledge & Community Studies</option>
+                                            <option value="Agricultural Sciences" {{ old('department') == 'Agricultural Sciences' ? 'selected' : '' }}>Agricultural Sciences</option>
+                                            <option value="Computing & Information Systems" {{ old('department') == 'Computing & Information Systems' ? 'selected' : '' }}>Computing & Information Systems</option>
+                                            <option value="Geomatics" {{ old('department') == 'Geomatics' ? 'selected' : '' }}>Geomatics</option>
+                                            <option value="Humanities" {{ old('department') == 'Humanities' ? 'selected' : '' }}>Humanities</option>
+                                            <option value="Management" {{ old('department') == 'Management' ? 'selected' : '' }}>Management</option>
+                                            <option value="Physical & Natural Sciences" {{ old('department') == 'Physical & Natural Sciences' ? 'selected' : '' }}>Physical & Natural Sciences</option>
+                                            <option value="Social Sciences" {{ old('department') == 'Social Sciences' ? 'selected' : '' }}>Social Sciences</option>
+                                            <option value="Sports Science & Physical Education" {{ old('department') == 'Sports Science & Physical Education' ? 'selected' : '' }}>Sports Science & Physical Education</option>
+                                            <option value="Medicine" {{ old('department') == 'Medicine' ? 'selected' : '' }}>Medicine</option>
+                                            <option value="Technology" {{ old('department') == 'Technology' ? 'selected' : '' }}>Technology</option>
+                                            <option value="Indigenous Knowledge & Community Studies" {{ old('department') == 'Indigenous Knowledge & Community Studies' ? 'selected' : '' }}>Indigenous Knowledge & Community Studies</option>
                                         </optgroup>
 
                                         <!-- Faculty of Management Studies -->
                                         <optgroup label="Faculty of Management Studies">
-                                            <option value="Department of Business Management" >Department of Business Management</option>
-                                            <option value="Department of Tourism Management" >Department of Tourism Management</option>
-                                            <option value="Department of Accountancy & Finance" >Department of Accountancy & Finance</option>
-                                            <option value="Department of Marketing Management" >Department of Marketing Management</option>
+                                            <option value="Department of Business Management" {{ old('department') == 'Department of Business Management' ? 'selected' : '' }}>Department of Business Management</option>
+                                            <option value="Department of Tourism Management" {{ old('department') == 'Department of Tourism Management' ? 'selected' : '' }}>Department of Tourism Management</option>
+                                            <option value="Department of Accountancy & Finance" {{ old('department') == 'Department of Accountancy & Finance' ? 'selected' : '' }}>Department of Accountancy & Finance</option>
+                                            <option value="Department of Marketing Management" {{ old('department') == 'Department of Marketing Management' ? 'selected' : '' }}>Department of Marketing Management</option>
                                         </optgroup>
 
                                         <!-- Faculty of Medicine -->
                                         <optgroup label="Faculty of Medicine">
-                                            <option value="Anatomy" >Anatomy</option>
-                                            <option value="Biochemistry" >Biochemistry</option>
-                                            <option value="Community Medicine" >Community Medicine</option>
-                                            <option value="Forensic Medicine & Toxicology" >Forensic Medicine & Toxicology</option>
-                                            <option value="Medicine" >Medicine</option>
-                                            <option value="Microbiology" >Microbiology</option>
-                                            <option value="Obstetrics and Gynaecology" >Obstetrics and Gynaecology</option>
-                                            <option value="Paediatrics" >Paediatrics</option>
-                                            <option value="Parasitology" >Parasitology</option>
-                                            <option value="Pathology" >Pathology</option>
-                                            <option value="Pharmacology" >Pharmacology</option>
-                                            <option value="Physiology" >Physiology</option>
-                                            <option value="Primary Care & Family Medicine">Primary Care & Family Medicine</option>
-                                            <option value="Psychiatry" >Psychiatry</option>
-                                            <option value="Surgery" >Surgery</option>
+                                            <option value="Anatomy" {{ old('department') == 'Anatomy' ? 'selected' : '' }}>Anatomy</option>
+                                            <option value="Biochemistry" {{ old('department') == 'Biochemistry' ? 'selected' : '' }}>Biochemistry</option>
+                                            <option value="Community Medicine" {{ old('department') == 'Community Medicine' ? 'selected' : '' }}>Community Medicine</option>
+                                            <option value="Forensic Medicine & Toxicology" {{ old('department') == 'Forensic Medicine & Toxicology' ? 'selected' : '' }}>Forensic Medicine & Toxicology</option>
+                                            <option value="Medicine" {{ old('department') == 'Medicine' ? 'selected' : '' }}>Medicine</option>
+                                            <option value="Microbiology" {{ old('department') == 'Microbiology' ? 'selected' : '' }}>Microbiology</option>
+                                            <option value="Obstetrics and Gynaecology" {{ old('department') == 'Obstetrics and Gynaecology' ? 'selected' : '' }}>Obstetrics and Gynaecology</option>
+                                            <option value="Paediatrics" {{ old('department') == 'Paediatrics' ? 'selected' : '' }}>Paediatrics</option>
+                                            <option value="Parasitology" {{ old('department') == 'Parasitology' ? 'selected' : '' }}>Parasitology</option>
+                                            <option value="Pathology" {{ old('department') == 'Pathology' ? 'selected' : '' }}>Pathology</option>
+                                            <option value="Pharmacology" {{ old('department') == 'Pharmacology' ? 'selected' : '' }}>Pharmacology</option>
+                                            <option value="Physiology" {{ old('department') == 'Physiology' ? 'selected' : '' }}>Physiology</option>
+                                            <option value="Primary Care & Family Medicine" {{ old('department') == 'Primary Care & Family Medicine' ? 'selected' : '' }}>Primary Care & Family Medicine</option>
+                                            <option value="Psychiatry" {{ old('department') == 'Psychiatry' ? 'selected' : '' }}>Psychiatry</option>
+                                            <option value="Surgery" {{ old('department') == 'Surgery' ? 'selected' : '' }}>Surgery</option>
                                         </optgroup>
 
                                         <!-- Faculty of Social Sciences and Languages -->
                                         <optgroup label="Faculty of Social Sciences and Languages">
-                                            <option value="Department of Social Sciences">Department of Social Sciences</option>
-                                            <option value="Department of English Language Teaching" >Department of English Language Teaching</option>
-                                            <option value="Department of Geography & Environmental Management" >Department of Geography & Environmental Management</option>
-                                            <option value="Department of Information Technology" >Department of Information Technology</option>
-                                            <option value="Department of Languages">Department of Languages</option>
+                                            <option value="Department of Social Sciences" {{ old('department') == 'Department of Social Sciences' ? 'selected' : '' }}>Department of Social Sciences</option>
+                                            <option value="Department of English Language Teaching" {{ old('department') == 'Department of English Language Teaching' ? 'selected' : '' }}>Department of English Language Teaching</option>
+                                            <option value="Department of Geography & Environmental Management" {{ old('department') == 'Department of Geography & Environmental Management' ? 'selected' : '' }}>Department of Geography & Environmental Management</option>
+                                            <option value="Department of Information Technology" {{ old('department') == 'Department of Information Technology' ? 'selected' : '' }}>Department of Information Technology</option>
+                                            <option value="Department of Languages" {{ old('department') == 'Department of Languages' ? 'selected' : '' }}>Department of Languages</option>
                                         </optgroup>
 
                                         <!-- Faculty of Technology -->
                                         <optgroup label="Faculty of Technology">
-                                            <option value="Department of Engineering Technology" >Department of Engineering Technology</option>
-                                            <option value="Department of Biosystems Technology" >Department of Biosystems Technology</option>
+                                            <option value="Department of Engineering Technology" {{ old('department') == 'Department of Engineering Technology' ? 'selected' : '' }}>Department of Engineering Technology</option>
+                                            <option value="Department of Biosystems Technology" {{ old('department') == 'Department of Biosystems Technology' ? 'selected' : '' }}>Department of Biosystems Technology</option>
                                         </optgroup>
                                     </select>
                                     @error('department')

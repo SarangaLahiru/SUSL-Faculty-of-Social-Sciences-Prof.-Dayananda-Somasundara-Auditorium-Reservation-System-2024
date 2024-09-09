@@ -127,12 +127,12 @@
 
 
 
-                                @if($user->student_no)
+                                {{--  @if($user->student_no)
                                     <div class="form-group">
                                         <label for="student_no">Student Number</label>
                                         <input type="text" name="student_no" id="student_no" class="form-control" value="{{ old('student_no', $user->student_no) }}">
                                     </div>
-                                @endif
+                                @endif  --}}
 
 
 
