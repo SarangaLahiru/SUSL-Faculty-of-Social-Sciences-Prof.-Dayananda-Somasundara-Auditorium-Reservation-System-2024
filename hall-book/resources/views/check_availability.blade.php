@@ -326,7 +326,7 @@
             },
             header: {
                 left: 'title',
-                center: 'prev,next today',
+                center: 'prev,next',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             weekNumbers: true,
