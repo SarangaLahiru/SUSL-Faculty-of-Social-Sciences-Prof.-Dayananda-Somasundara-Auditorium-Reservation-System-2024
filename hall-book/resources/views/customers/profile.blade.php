@@ -40,7 +40,7 @@
     <a class="nav-link" href="{{ route('account') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
-p
+
 </li>
 <!-- Divider -->
 <hr class="sidebar-divider">
