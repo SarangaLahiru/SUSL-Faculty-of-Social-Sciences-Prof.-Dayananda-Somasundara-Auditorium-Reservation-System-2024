@@ -12,6 +12,8 @@
     border-radius: 5px;
     position: relative;
     z-index: 1000;
+    transform: scale(0.95);
+    margin-top: -40px;
 
 }
 
@@ -135,7 +137,7 @@ body {
     }
 
     .check {
-        margin-top: -90px;
+        margin-top: -125px;
     }
 
     .dis {

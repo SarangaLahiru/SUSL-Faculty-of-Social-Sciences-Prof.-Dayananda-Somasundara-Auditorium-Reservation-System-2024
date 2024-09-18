@@ -92,6 +92,30 @@
     <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded w-75 m-auto">
         <div id='calendar'></div>
     </div>
+    <div class="modal fade" id="eventDetailsModal" tabindex="-1" style="position: absolut; z-index:100000;" role="dialog"
+    aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(56, 132, 255); color:white;">
+                <h5 class="modal-title"  id="eventDetailsModalLabel">Event Details</h5>
+                {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> --}}
+            </div>
+            <div class="modal-body">
+                {{-- <h5 id="eventTitle"></h5> --}}
+                <p><strong>Status:</strong> <span id="eventTitle"></span></p>
+                <p><strong>Start:</strong> <span id="eventStart"></span></p>
+                <p><strong>End:</strong> <span id="eventEnd"></span></p>
+                <p><strong>Description:</strong></p>
+                <p id="eventDescription"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="manualCloseBtn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/glightbox@3.1.0/dist/js/glightbox.min.js"></script>
 
@@ -150,6 +174,18 @@
             navLinks: true,
             eventLimit: true,
             initialView: 'listMonth',
+            eventClick: function (info) {
+                // Populate modal with event details
+                var eventObj = info.event;
+                console.log(eventObj)
+                document.getElementById('eventTitle').innerText = eventObj.extendedProps.status;
+                document.getElementById('eventStart').innerText = eventObj.start.toLocaleString();
+                document.getElementById('eventEnd').innerText = eventObj.end ? eventObj.end.toLocaleString() : 'N/A';
+                document.getElementById('eventDescription').innerText = eventObj.extendedProps.title1 || 'No description available';
+
+                // Show the modal
+                $('#eventDetailsModal').modal('show');
+            },
 
         });
         calendar.render();

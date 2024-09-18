@@ -75,7 +75,7 @@
                                         <div class="col mb-3" id="studentNoField" style="display: none;">
                                             <label for="studentNo">Student Registration No</label>
                                             <input type="text" class="form-control" id="studentNo" name="studentNo"
-                                                required value="{{ Auth::user()->student_no }}">
+                                                required value="{{ Auth::user()->student_no }}" readonly>
                                             <div class="invalid-feedback">
                                                 Please enter a valid student number.
                                             </div>
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
 
-                                            <input type="text" class="form-control" id="userID" name="userID" required value="{{ Auth::user()->NIC }}" style="display: none;">
+                                            <input type="text" class="form-control" id="userID" name="userID" required value="{{ Auth::user()->NIC }}" style="display: none;" >
 
 
 
@@ -106,7 +106,7 @@
 
                                         <div class="col-md-6 mb-3">
                                             <label for="email">Email Address</label>
-                                            <input type="email" class="form-control" id="email" name="email"  value="{{ Auth::user()->email }}" required>
+                                            <input type="email" class="form-control" id="email" name="email"  value="{{ Auth::user()->email }}" required >
                                             <div class="invalid-feedback">
                                                 Please enter a valid email address.
                                             </div>

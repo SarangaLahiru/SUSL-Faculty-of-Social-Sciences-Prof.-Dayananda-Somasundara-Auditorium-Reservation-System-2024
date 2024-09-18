@@ -39,7 +39,7 @@
 
                     <div class="shadow">
 
-                        <div id="calendar" class="calendar" style="margin-top: -10px;" data-ao="fade-left">
+                        <div id="calendar" class="calendar"  data-ao="fade-left">
 
                             <ul class="legend" style="display: flex">
                                 <li>
@@ -67,7 +67,7 @@
 <!--====== HEADER ONE PART ENDS ======-->
 <div class="container check">
 
-    <div class="row justify-content-center mt-4" data-ao="fade-u" data-ao-duration="1000">
+    <div class="row justify-content-center" data-ao="fade-u" data-ao-duration="1000">
         <div class="col">
             <div class="car">
                 <div class="card-body">
@@ -130,12 +130,12 @@
 
 
 </div>
-<div class="modal fade" id="eventDetailsModal" tabindex="-1" style="position: absolute; z-index:100000;" role="dialog"
+<div class="modal fade" id="eventDetailsModal" tabindex="-1" style="position: absolut; z-index:100000;" role="dialog"
     aria-labelledby="eventDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eventDetailsModalLabel">Event Details</h5>
+            <div class="modal-header" style="background-color: rgb(56, 132, 255); color:white;">
+                <h5 class="modal-title"  id="eventDetailsModalLabel">Event Details</h5>
                 {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button> --}}
@@ -501,6 +501,15 @@
             });
 
         @endif
+
+        @if (session('error3'))
+        Swal.fire({
+            title: 'Unavailable',
+            text: 'You cannot book time slots for past dates.',
+            icon: 'error'
+        });
+
+    @endif
 
 
 

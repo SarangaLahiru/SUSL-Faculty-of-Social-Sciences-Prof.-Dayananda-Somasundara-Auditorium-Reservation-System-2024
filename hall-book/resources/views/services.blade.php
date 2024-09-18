@@ -98,7 +98,7 @@
 </div>
 <!--====== ABOUT TWO PART ENDS ======-->
 <!--====== TEAM STYLE ONE START ======-->
-<section class="team-area">
+<section class="team-area" style="transform: scale(0.8); margin-top: -100px" style="margin-top: -20px">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4">

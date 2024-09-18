@@ -109,7 +109,9 @@ public function showCalendar2(){
             $color = ($booking->status == 'accepted') ? 'green' : '#EEE600';
 
             $events[] = [
-                'title' =>  $booking->event_type,
+                'status' =>  $booking->status,
+                'title1' =>  $booking->event_type,
+                'title' => '- ' . $endTime . ' - ' . $booking->event_type,
                 'start' => $bookingDate['date'] . 'T' . $bookingDate['start_time'],
                 'end' => $bookingDate['date'] . 'T' . $bookingDate['end_time'],
                 'color' => $color, // Customize the color based on status
