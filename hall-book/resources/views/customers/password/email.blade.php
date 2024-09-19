@@ -61,4 +61,21 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
+<!-- Include Toastify CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    @if (session('status'))
+        Toastify({
+            text: "{{ session('status') }}",
+            duration: 5000,
+            close: true,
+            gravity: "top", // 'top' or 'bottom'
+            position: "right", // 'left', 'center' or 'right'
+            backgroundColor: "#4CAF50",  // A simple green color for success
+            stopOnFocus: true, // Prevents the toast from hiding on click
+        }).showToast();
+    @endif
+</script>
 </html>
