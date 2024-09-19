@@ -105,12 +105,12 @@
             </li>
 
 
-             <!-- Nav Item - Charts -->
+             {{--  <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li>  --}}
 {{--
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -206,10 +206,68 @@
                 <!-- Begin Page Content -->
 
                 <!-- /.container-fluid -->
+                <div class="container card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">User List</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>NIC</th>
+                                        <th>Category</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($user as $index => $user)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $user->first_name }}</td>
+                                        <td>{{ $user->last_name }}</td>
+                                        <td>{{ $user->NIC }}</td>
+                                        <td>{{ $user->category }}</td>
+                                        <td>{{ $user->phone_number }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>
+                                            <!-- View Details Button -->
+                                            <a href="{{ route('users.show', $user->id) }}" class="btn btn-info btn-sm">
+                                                <i class="fas fa-eye"></i> View Details
+                                            </a>
+
+                                            <!-- View Bookings Button -->
+                                            <a href="{{ route('users.bookings', $user->id) }}" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-calendar-alt"></i> View Bookings
+                                            </a>
+
+                                            <!-- Delete User Form -->
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">
+                                                    <i class="fas fa-trash"></i> Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
 
 
             </div>
             <!-- End of Main Content -->
+
 
 
 

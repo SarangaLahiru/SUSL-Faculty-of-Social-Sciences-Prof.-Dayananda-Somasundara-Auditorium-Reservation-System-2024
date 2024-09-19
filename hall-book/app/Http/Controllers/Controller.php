@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -292,7 +293,8 @@ $bookingCounts = array_values($monthlyCounts);
     }
     public function seeAccounts(){
         $adminData = Auth::guard('admin')->user();
-        return view('admin.accounts',compact('adminData'));
+        $user=User::all();
+        return view('admin.accounts',compact('adminData','user'));
     }
 
     public function generateAnalyticsReport()
@@ -317,5 +319,29 @@ $bookingCounts = array_values($monthlyCounts);
         return $pdf->download('full_report.pdf');
 
     }
+
+    public function show($id)
+{
+    $user = User::findOrFail($id);
+    return view('admin.trackUsers', compact('user'));
+}
+
+public function bookings($id)
+{
+    $user = User::findOrFail($id);
+
+
+    $bookings = Booking::where('userID', $user->NIC)->get();
+    return view('admin.trackBooking', compact('bookings','user'));
+}
+
+public function destroy($id)
+{
+    $user = User::findOrFail($id);
+    Booking::where('userID', $id)->delete();
+    $user->delete();
+
+    return redirect()->route('admin.accounts')->with('success', 'User deleted successfully');
+}
 
 }
