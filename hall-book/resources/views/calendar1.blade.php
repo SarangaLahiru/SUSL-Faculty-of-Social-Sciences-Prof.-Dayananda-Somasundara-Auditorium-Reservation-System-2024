@@ -138,6 +138,13 @@
     navbarTogglerOne.addEventListener("click", function () {
         navbarTogglerOne.classList.toggle("active");
     });
+
+
+    var manualCloseBtn=document.getElementById('manualCloseBtn');
+
+    manualCloseBtn.addEventListener("click", function () {
+        $('#eventDetailsModal').modal('hide');
+    });
 </script>
 
 {{--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
