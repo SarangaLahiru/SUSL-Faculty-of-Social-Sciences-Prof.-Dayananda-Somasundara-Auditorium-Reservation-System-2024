@@ -71,6 +71,12 @@
             </div>
             <div class="card-body">
                 <table>
+                    @if($booking->userID)
+                    <tr>
+                        <th>user ID:</th>
+                        <td>{{ $booking->userID }}</td>
+                    </tr>
+                @endif
                     @if($booking->student_no)
                         <tr>
                             <th>Student No:</th>

@@ -69,6 +69,15 @@ Route::prefix('admin')->group(function () {
         Route::post('/booking/{id}/reject', [BookingController::class, 'reject'])->name('booking.reject')->middleware('check.role:admin');;
         Route::get('/bookingview/{id}', [App\Http\Controllers\Controller::class, 'showviewBooking'])->name('adminview.booking.show');
 
+
+        Route::get('/users/{id}', [Controller::class, 'show'])->name('users.show')->middleware('check.role:admin');;
+
+// Route to view bookings for a specific user
+Route::get('/users/{id}/bookings', [Controller::class, 'bookings'])->name('users.bookings')->middleware('check.role:admin');;
+
+// Route to delete user
+Route::delete('/users/{id}', [Controller::class, 'destroy'])->name('users.destroy')->middleware('check.role:admin');;
+
     });
 
 });
