@@ -119,7 +119,7 @@
 
                     <div class="form-section">
                         <div class="col-12 mb-5">
-                            <h2 class="h3">Register</h2>
+                            <h2 class="h3">Registration</h2>
                             <h3 id="categoryText" class="fs-6 fw-normal text-secondary m-0">
                                 Create Your account
                             </h3>

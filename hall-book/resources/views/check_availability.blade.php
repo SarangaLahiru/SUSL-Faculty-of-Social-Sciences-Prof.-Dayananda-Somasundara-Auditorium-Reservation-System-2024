@@ -25,7 +25,7 @@
                     <div class="header-wrapper">
                         <div class="header-content" data-ao="fade-up" data-ao-duration="3000">
                             <h1 class="header-title">
-                                Prof. Dayananda Somasundara Auditorum
+                                Prof. Dayananda Somasundara Auditorium
                             </h1>
                             <p class="text-lg" style="font-size: 24px">
                                 Hall Reservation System
