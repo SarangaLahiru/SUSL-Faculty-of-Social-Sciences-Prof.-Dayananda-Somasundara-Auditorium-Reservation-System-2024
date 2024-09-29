@@ -58,8 +58,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="video-content text-center">
-                    <img src="https://cdn.ayroui.com/1.0/images/video/video.png" alt="Video" />
-                    <a class="video-popup glightbox" href="https://www.youtube.com/watch?v=NJbXptdalP0">
+                    <img src="/video/demo.png" alt="Video" />
+                    <a class="video-popup glightbox" href="/video/demo.mp4">
                         <i class="lni lni-play"></i>
                     </a>
                 </div>

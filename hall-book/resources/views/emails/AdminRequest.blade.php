@@ -96,7 +96,7 @@
                 @endforeach
             </ul>
             <p>Please login to the admin panel to review and process the booking request.</p>
-            <a href="#" class="button">Go to Admin Panel</a>
+            <a href=" {{ url('/admin/dashboard') }}"  class="button">Go to Admin Panel</a>
             <p>Best regards,</p>
             <p>Manager,</p>
             <p>Prof. Dayananda Somasundara Auditorium Hall - Reservation System</p>

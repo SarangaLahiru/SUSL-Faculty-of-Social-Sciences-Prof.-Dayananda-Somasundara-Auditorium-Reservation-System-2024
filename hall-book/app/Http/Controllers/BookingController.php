@@ -315,7 +315,7 @@ public function showCalendar2(){
             // Save the booking to the database
             $booking->save();
             Mail::to($booking->email)->send(new ApplicantSubmit($booking));
-            Mail::to('lahirusashika@gmail.com')->send(new AdminRequest($booking));
+            Mail::to('audi@ssl.sab.ac.lk')->send(new AdminRequest($booking));
 
             // Redirect the user to a success page
             // return redirect()->route('successPage')->with('success', 'Booking created successfully.');
