@@ -173,7 +173,7 @@
         <div class="row justify-content-center">
             <div class="col-xxl-6 col-xl-7 col-lg-8">
                 <div class="section-title text-center mb-5">
-                    <h2 class="mb-3 fw-bold ">Events at the Prof. Dayananda Somasundara Auditorum</h2>
+                    <h2 class="mb-3 fw-bold ">Events at the Prof. Dayananda Somasundara Auditorium</h2>
 
                 </div>
             </div>

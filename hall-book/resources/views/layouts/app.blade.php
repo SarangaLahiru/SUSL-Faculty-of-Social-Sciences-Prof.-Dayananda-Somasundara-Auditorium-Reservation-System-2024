@@ -173,26 +173,26 @@
                 <!-- Contact Info -->
                 <div class="col-md-4 mb-4" style="color: white;">
                     <h5 class="text-uppercase font-weight-bold">Contact Information</h5>
-                    <p>
+                    <p style="color: white;">
                         <i class="fas fa-map-marker-alt me-2"></i> Faculty of Social Sciences and Languages,<br>
                         Sabaragamuwa University of Sri Lanka,<br>
                         P.O. Box 02, Belihuloya 70140, Sri Lanka
                     </p>
-                    <p>
-                        <i class="fas fa-phone-alt me-2"></i> +94 45-2280021
+                    <p style="color: white;">
+                        <i class="fas fa-phone-alt me-2" style="color: white;" ></i> +94 45-2280021
                     </p>
-                    <p>
-                        <i class="fas fa-envelope me-2"></i><a href="mailto:example@gmail.com" class="text-light"> audi@ssl.sab.ac.lk </a>
+                    <p style="color: white;">
+                        <i class="fas fa-envelope me-2" style="color: white;"></i><a href="mailto:example@gmail.com" class="text-light"> audi@ssl.sab.ac.lk </a>
                     </p>
                 </div>
                 <!-- Navigation Links -->
                 <div class="col-md-4 mb-4">
                     <h5 class="text-uppercase font-weight-bold">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light d-block mb-2"><i class="fas fa-calendar-alt me-2"></i> Booking Calendar</a></li>
-                        <li><a href="#" class="text-light d-block mb-2"><i class="fas fa-users me-2"></i> Staff & Resources</a></li>
-                        <li><a href="#" class="text-light d-block mb-2"><i class="fas fa-history me-2"></i> Past Events</a></li>
-                        <li><a href="#" class="text-light d-block mb-2"><i class="fas fa-question-circle me-2"></i> Help</a></li>
+                        <li><a href="/" class="text-light d-block mb-2"><i class="fas fa-calendar-alt me-2"></i> Booking Calendar</a></li>
+                        <li><a href="/staff" class="text-light d-block mb-2"><i class="fas fa-users me-2"></i> Staff & Resources</a></li>
+                        <li><a href="/resources" class="text-light d-block mb-2"><i class="fas fa-history me-2"></i> Past Events</a></li>
+                        <li><a href="/support" class="text-light d-block mb-2"><i class="fas fa-question-circle me-2"></i> Help</a></li>
                     </ul>
                 </div>
                 <!-- Logo and Social Media -->
