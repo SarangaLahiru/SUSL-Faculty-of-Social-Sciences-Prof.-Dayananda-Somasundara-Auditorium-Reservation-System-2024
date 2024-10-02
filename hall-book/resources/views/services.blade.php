@@ -137,7 +137,7 @@
                         <img src="Images/PM Chamith Janaka Bandara.jpg" alt="Team" />
                     </div>
                     <div class="team-content">
-                        <h4 class="name">Mr.Chamith Bandara</h4>
+                        <h4 class="name">Mr. Chamith Bandara</h4>
                         <span class="sub-title">Technical Officer</span>
                         <ul class="social">
                             {{--  <li>
@@ -167,7 +167,7 @@
 
                     </div>
                     <div class="team-content">
-                        <h4 class="name">Mr.Kithsiri Fernando</h4>
+                        <h4 class="name">Mr. Kithsiri Fernando</h4>
                         <span class="sub-title">Technical Officer</span>
                         <ul class="social">
                             {{--  <li>
@@ -200,13 +200,13 @@
 <div class="container" style="margin-top: 80px;">
     <div class="text-center mb-5">
         <h1> Our Features!</h1>
-        <p class="lead">At the Prof. Dayananda Somasundara Auditorum, we pride ourselves on providing top-notch
+        <p class="lead">At the Prof. Dayananda Somasundara Auditorium, we pride ourselves on providing top-notch
             facilities to make your events unforgettable.</p>
     </div>
 
     <div class="row feature-section">
         <div class="col-md-6 mb-4">
-            <img src="images/img-9.png" class="common-image" alt="Hall Image">
+            <img src="Images/img-9.png" class="common-image" alt="Hall Image">
         </div>
         <div class="col-md-6">
             <ul class="feature-list">
