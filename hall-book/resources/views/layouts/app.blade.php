@@ -141,12 +141,12 @@
                                     <ul>
                                         <li>
                                             <a class="btn primary-btn-outline" href="{{ route('login') }}">
-                                                Sign In
+                                                Log in
                                             </a>
                                         </li>
                                         <li>
                                             <a class="btn primary-btn" href="{{ route('register') }}">
-                                                Sign Up
+                                                Register
                                             </a>
                                         </li>
                                     </ul>

@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone_number" class="form-label">Contact Number <span class="text-danger">*</span></label>
-                                    <input type="tel" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" value="{{ old('phone_number') }}"  placeholder="Phone Number">
+                                    <input type="tel" id="phone_number" class="form-control @error('phone_number') is-invalid @enderror" pattern="\d{10}" name="phone_number" value="{{ old('phone_number') }}"  placeholder="Phone Number">
                                     @error('phone_number')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -176,7 +176,7 @@
 
                                 <!-- Conditional Fields -->
                                 <div id="studentNoField" class="col-md-6" style="display: none;">
-                                    <label for="student_no" class="form-label">Student Registration No</label>
+                                    <label for="student_no" class="form-label">Student Registration No <span class="text-danger">*</span></label>
                                     <input type="text" id="student_no" class="form-control @error('student_no') is-invalid @enderror" name="student_no" value="{{ old('student_no') }}"  placeholder="Student Number">
                                     @error('student_no')
                                     <div class="invalid-feedback">
@@ -223,6 +223,7 @@
                                             <option value="Department of Food Science & Technology" {{ old('department') == 'Department of Food Science & Technology' ? 'selected' : '' }}>Department of Food Science & Technology</option>
                                             <option value="Department of Physical Sciences & Technology" {{ old('department') == 'Department of Physical Sciences & Technology' ? 'selected' : '' }}>Department of Physical Sciences & Technology</option>
                                             <option value="Department of Sports Sciences & Physical Education" {{ old('department') == 'Department of Sports Sciences & Physical Education' ? 'selected' : '' }}>Department of Sports Sciences & Physical Education</option>
+                                            <option value="Department of Natural Resources" {{ old('department') == 'Department of Natural Resources' ? 'selected' : '' }}>Department of Natural Resources</option>
                                         </optgroup>
 
                                         <!-- Faculty of Computing -->
@@ -287,6 +288,8 @@
                                             <option value="Department of Geography & Environmental Management" {{ old('department') == 'Department of Geography & Environmental Management' ? 'selected' : '' }}>Department of Geography & Environmental Management</option>
                                             <option value="Department of Information Technology" {{ old('department') == 'Department of Information Technology' ? 'selected' : '' }}>Department of Information Technology</option>
                                             <option value="Department of Languages" {{ old('department') == 'Department of Languages' ? 'selected' : '' }}>Department of Languages</option>
+                                            <option value="Department of Economics and statistics" {{ old('department') == 'Department of Economics and statistics' ? 'selected' : '' }}>Department of Economics and statistics</option>
+
                                         </optgroup>
 
                                         <!-- Faculty of Technology -->

@@ -75,14 +75,14 @@
                                         <div class="col mb-3" id="studentNoField" style="display: none;">
                                             <label for="studentNo">Student Registration No</label>
                                             <input type="text" class="form-control" id="studentNo" name="studentNo"
-                                                required value="{{ Auth::user()->student_no }}" readonly>
+                                                required value="{{ Auth::user()->student_no }}" >
                                             <div class="invalid-feedback">
                                                 Please enter a valid student number.
                                             </div>
                                         </div>
                                         <div class="col mb-3" id="idNoField" style="display: none;">
                                             <label for="idNo">NIC Number</label>
-                                            <input type="text" class="form-control" id="idNo" name="idNo" required value="{{ Auth::user()->NIC }}" readonly>
+                                            <input type="text" class="form-control" id="idNo" name="idNo" required value="{{ Auth::user()->NIC }}">
                                             <div class="invalid-feedback">
                                                 Please enter a valid ID number.
                                             </div>
@@ -178,9 +178,12 @@
 
                                                 <!-- Faculty of Applied Sciences -->
                                                 <optgroup label="Faculty of Applied Sciences">
+
                                                     <option value="Department of Food Science & Technology" {{ Auth::user()->department == 'Department of Food Science & Technology' ? 'selected' : '' }}>Department of Food Science & Technology</option>
                                                     <option value="Department of Physical Sciences & Technology" {{ Auth::user()->department == 'Department of Physical Sciences & Technology' ? 'selected' : '' }}>Department of Physical Sciences & Technology</option>
                                                     <option value="Department of Sports Sciences & Physical Education" {{ Auth::user()->department == 'Department of Sports Sciences & Physical Education' ? 'selected' : '' }}>Department of Sports Sciences & Physical Education</option>
+                                                    <option value="Department of Natural Resources" {{ Auth::user()->department == 'Department of Natural Resources' ? 'selected' : '' }}>Department of Natural Resources</option>
+
                                                 </optgroup>
 
                                                 <!-- Faculty of Computing -->
@@ -245,6 +248,8 @@
                                                     <option value="Department of Geography & Environmental Management" {{ Auth::user()->department == 'Department of Geography & Environmental Management' ? 'selected' : '' }}>Department of Geography & Environmental Management</option>
                                                     <option value="Department of Information Technology" {{ Auth::user()->department == 'Department of Information Technology' ? 'selected' : '' }}>Department of Information Technology</option>
                                                     <option value="Department of Languages" {{ Auth::user()->department == 'Department of Languages' ? 'selected' : '' }}>Department of Languages</option>
+                                                    <option value="Department of Economics and statistics" {{ Auth::user()->department == 'Department of Economics and statistics' ? 'selected' : '' }}>Department of Economics and statistics</option>
+
                                                 </optgroup>
 
                                                 <!-- Faculty of Technology -->
@@ -328,7 +333,7 @@
                                     <hr>
                                     @endforeach
 
-
+                                <a href="/" class="btn btn-secondary" >Back to Home</a>
                                     <button type="button" class="btn btn-primary next-step">Next</button>
                                 </div>
 
@@ -453,7 +458,7 @@
                                 <!-- Step 3 -->
                                 <div class="step" data-step="2" style="display: none;">
                                     <div class="form-group">
-                                        <label for="fileInput" id="fileInputl">Upload your verification document.(If
+                                        <label for="fileInput" id="fileInputl">Upload your verification document. (If
                                             any)</label>
                                         <div class="custom-file">
                                             <input value="none" type="file" class="custom-file-input" id="fileInput"
