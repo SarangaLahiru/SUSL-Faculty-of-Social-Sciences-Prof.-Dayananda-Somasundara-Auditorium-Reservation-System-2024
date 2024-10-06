@@ -395,7 +395,7 @@
             var formattedTimePeriods = bookedTimePeriods.length ? bookedTimePeriods.join('<br>') : 'No bookings for this date';
 
             Swal.fire({
-                title: '<span style="font-size: 24px; color: #ff6b6b; font-weight: bold;">Booked Time Periods</span>',
+                title: '<span style="font-size: 24px; color: #ff6b6b; font-weight: bold;">Available</span>',
                 html: '<div class="card" style="font-size: 18px; color: green; padding: 20px;background-color: rgb(232, 255, 230);">' + formattedTimePeriods + '</div>',
                 icon: 'info',
                 confirmButtonText: 'Close',

@@ -145,7 +145,7 @@
                                 @endif
 
                                 @if($user->post)
-                                    <p class="card-text"><strong>Post:</strong> {{ $user->post }}</p>
+                                    <p class="card-text"><strong>Designation:</strong> {{ $user->post }}</p>
                                 @endif
 
                                 @if($user->address)

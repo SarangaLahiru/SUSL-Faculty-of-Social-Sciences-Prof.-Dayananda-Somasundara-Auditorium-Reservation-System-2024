@@ -161,7 +161,7 @@
 
                                 @if($user->post)
                                     <div class="form-group">
-                                        <label for="post">Post</label>
+                                        <label for="post">Designation</label>
                                         <input type="text" name="post" id="post" class="form-control" value="{{ old('post', $user->post) }}">
                                     </div>
                                 @endif

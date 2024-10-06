@@ -30,7 +30,7 @@
                             <div class="col-10 col-xl-8 py-3">
                                 <hr class="border-primary-subtle mb-4">
                                 <h2 class="h1 mb-4">Welcome to the Hall Reservation System!</h2>
-                                <p class="lead m-0">Please log in to manage your reservations and explore available halls for your events..</p>
+                                <p class="lead m-0">Please log in to manage your reservations and explore available halls for your events.</p>
                             </div>
                         </div>
                     </div>
