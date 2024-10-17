@@ -484,6 +484,11 @@
 
         document.getElementById('faculty').addEventListener('change', function () {
             var divisionFieldField = document.getElementById('divisionField');
+            if(this.value==='Faculty of Graduate Studies'){
+                document.getElementById('departmentField').style.display = 'none';
+                document.getElementById('department').value = 'none';
+
+            }
             if (selectedCategory !== 'administrative' && selectedCategory !== 'non-academic' && selectedCategory !== 'student') {
                 if (this.value === 'none') {
                     divisionFieldField.style.display = 'block';
