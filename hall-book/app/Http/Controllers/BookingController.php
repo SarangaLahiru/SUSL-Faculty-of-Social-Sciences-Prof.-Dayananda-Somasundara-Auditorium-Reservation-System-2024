@@ -337,6 +337,16 @@ public function showCalendar2(){
     return redirect()->route('admin.dashboard')->with('success', 'Booking accepted successfully.');
 }
 
+
+public function delete(Request $request) {
+    $ids = $request->input('ids');
+    if ($ids) {
+        Booking::whereIn('id', $ids)->delete();
+        return response()->json(['success' => true]);
+    }
+    return response()->json(['error' => 'No bookings selected'], 400);
+}
+
 // public function reject($id)
 // {
 //     $booking = Booking::find($id);

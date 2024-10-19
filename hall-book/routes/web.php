@@ -72,6 +72,12 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/users/{id}', [Controller::class, 'show'])->name('users.show')->middleware('check.role:admin');;
 
+        Route::post('/delete-bookings', [BookingController::class, 'delete'])->name('bookings.delete');
+
+
+
+
+
 // Route to view bookings for a specific user
 Route::get('/users/{id}/bookings', [Controller::class, 'bookings'])->name('users.bookings')->middleware('check.role:admin');;
 

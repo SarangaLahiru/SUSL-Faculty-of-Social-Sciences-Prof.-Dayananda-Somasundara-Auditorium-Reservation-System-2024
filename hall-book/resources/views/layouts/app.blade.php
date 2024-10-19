@@ -146,7 +146,7 @@
                                         </li>
                                         <li>
                                             <a class="btn primary-btn" href="{{ route('register') }}">
-                                                Register
+                                                Sign Up
                                             </a>
                                         </li>
                                     </ul>
